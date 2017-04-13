@@ -1,0 +1,11 @@
+{
+    "name": "property-wizard",
+    "version": "0.0.1",
+    "description": "Property Wizard web application",
+    "scripts":{
+        "start": "http-server"
+    },
+    "devDependencies":{
+        "http-server":"^0.9.0"   
+    }
+}
