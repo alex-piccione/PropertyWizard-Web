@@ -1,0 +1,20 @@
+{
+  "name": "property-wizard-web",
+  "description": "Web site of Property Wizard application",
+  "version": "0.1.0",
+  "private": true,
+  "author": {
+    "name": "Alex",
+    "email": "alessandro.piccione.75@gmail.com",
+    "uri": "www.alex75.it"
+  },
+  "contributors": [],
+  "dependencies": {
+    "@google-cloud/debug-agent": "^1.0.0",
+    "@google/cloud-errors": "^0.1.1",
+    "@google/cloud-trace": "^0.6.3", // // deprecated, use @google-cloud/trace-agent
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "googleapis": "^19.0.0"
+  }
+}
