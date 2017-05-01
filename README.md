@@ -24,9 +24,17 @@ https://codelabs.developers.google.com/codelabs/cloud-cardboard-viewer/index.htm
 
 The repository should exists in GCP.
 
+## Deploy
+
 1. Set API_KEY value in app.yaml
 2. Run `gcloud app deploy`.
+3. Open it at https://<your-project-id>.appspot.com
 
 ## Deploy a different version
 
 1. Run `gcloud app deploy -version v1`
+
+
+# References
+
+[https://cloud.google.com/sdk/gcloud/reference/app/deploy](Google Cloud "deploy")

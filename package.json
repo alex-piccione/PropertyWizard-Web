@@ -12,7 +12,7 @@
   "dependencies": {
     "@google-cloud/debug-agent": "^1.0.0",
     "@google/cloud-errors": "^0.1.1",
-    "@google/cloud-trace": "^0.6.3", // // deprecated, use @google-cloud/trace-agent
+    "@google/cloud-trace": "^0.6.3",
     "body-parser": "^1.17.1",
     "express": "^4.15.2",
     "googleapis": "^19.0.0"
