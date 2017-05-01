@@ -34,6 +34,18 @@ The repository should exists in GCP.
 
 1. Run `gcloud app deploy -version v1`
 
+# Use GIT
+
+1. Configure GIT:
+git config --global user.email "you@email.com"
+git config --global user.name "Your Name"
+git config credential.helper gcloud.sh
+
+2. Add your Cloud Source Repository as a git remote:
+git remote add google https://source.developers.google.com/p/YOUR_PROJECT_ID/r/default
+
+3. Push the code into the Cloud Source Repository:
+git push --all google
 
 # References
 
