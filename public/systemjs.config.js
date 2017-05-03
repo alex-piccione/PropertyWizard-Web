@@ -2,9 +2,9 @@
     System.config({
         paths:{
             // pahs indicates alias
-            "npm": "node_modules/"
+            "npm:": "node_modules/"
         },
-        maos: {
+        map: {
             // the app is in the app folder
             "app": "app",
             // angular bundles
