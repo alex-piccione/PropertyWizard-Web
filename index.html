@@ -1,0 +1,19 @@
+<html>
+    <header>
+        <title>Property Wizard</title>
+        <base href="/">
+        <link rel="stylesheet" href="public/style.css">
+
+        <script src="node_modules/systemjs/dist/system.src.js"></script>
+        <script src="public/systemjs.config.js"></script>
+        <script>
+            System.import("app/main.js").catch( function(err){console.error(err); });
+        </script>
+    </header>
+    <body>
+        <h1>Property Wizard</h1>
+        <pw-app>
+                Loading...
+        </pw-app>
+    </body>
+</html>
