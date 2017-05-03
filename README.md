@@ -13,10 +13,10 @@ https://codelabs.developers.google.com/codelabs/cloud-cardboard-viewer/index.htm
 
 2. Start the server
 
-    `export API_KEY=your_api_key`
-    `npm start`
+    `export API_KEY=your_api_key`  (???)
+    run `npm start` or run `start server.bat` (on Windows)
 
-    See it on http://localhost:8080
+3. Open http://localhost:8080
 
 # Deploy on Google Cloud Platform
 
@@ -50,3 +50,25 @@ git push --all google
 # References
 
 [https://cloud.google.com/sdk/gcloud/reference/app/deploy](Google Cloud "deploy")
+
+
+# How it works
+
+## Typescript
+
+- tsc command
+- tsconfig.json
+
+## tsc
+
+-p (or --project): indicates to the compiler where is the root directory   
+if you run it in the root folder it compile ALL the node_modules files !!!
+
+
+## SystemJS
+
+- systemjs.config.js
+- systemjs-angular-loader.js
+
+## Angular2
+

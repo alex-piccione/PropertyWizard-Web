@@ -4,6 +4,7 @@
         "module": "commonjs",
         "moduleResolution": "node",
         "sourceMap": true,
+        "outDir": "build",
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
         "lib": [
