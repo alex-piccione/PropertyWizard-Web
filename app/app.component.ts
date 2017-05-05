@@ -7,13 +7,19 @@ export class Listing {
 
 @Component({
     selector: "pw-app",
-    template: `<h1>Component: {{title}}. Listing: {{listing.id}}, postcode: {{listing.postcode}}.</h1>`
+    template: `<h1>{{title}}</h1>
+        <div>
+            <label>Post cpde</label>
+            <input [(ngModel)]="listing.postcode" placeholder="post code" >
+        </div>
+    `
+    // `<h1>Component: {{title}}. Listing: {{listing.id}}, postcode: {{listing.postcode}}.</h1>`
 })
 
 export class AppComponent { 
     title = "Listing";
     listing: Listing = {
         id: 3,
-        postcode: 'aaa'
+        postcode: ''
     };
 }
