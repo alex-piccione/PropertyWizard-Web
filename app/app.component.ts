@@ -8,8 +8,10 @@ export class Listing {
 @Component({
     selector: "pw-app",
     template: `<h1>{{title}}</h1>
-        <div>
-            <label>Post cpde</label>
+        <h2>{{listing.postcode}}</h2>
+        <div><label>Id: </label>{{listing.id}}</div>
+        <div>   
+            <label>Post code</label>
             <input [(ngModel)]="listing.postcode" placeholder="post code" >
         </div>
     `
