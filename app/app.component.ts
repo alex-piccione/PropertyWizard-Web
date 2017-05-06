@@ -1,15 +1,12 @@
 import { Component } from "@angular/core";
-
-export class Postcode {
-    code: string;
-    description: string;
-}
+import { Postcode} from "./Postcode";
+//import { PostcodeDetailComponent } from "./postcode-detail.component"
 
 const POSTCODES: Postcode[] = [
-    { code: "EC1", description: "London EC1" },
-    { code: "EC2", description: "London EC2" },
-    { code: "EC3", description: "London EC3" },
-    { code: "EC4", description: "London EC4" }
+    { id: 1, code: "EC1", description: "London EC1" },
+    { id: 2, code: "EC2", description: "London EC2" },
+    { id: 3, code: "EC3", description: "London EC3" },
+    { id: 4, code: "EC4", description: "London EC4" }
 ]
 
 @Component({
@@ -22,16 +19,7 @@ const POSTCODES: Postcode[] = [
                 <span class="badge">{{postcode.code}}</span> {{postcode.description}}
             </li>
         </ul>
-        <div *ngIf="selectedPostcode">
-            <h2>{{selectedPostcode.code}} {{selectedPostcode.description}} details</h2>
-            <div>
-                <label>Code: </label>{{selectedPostcode.code}}
-            </div>
-            <div>
-                <label>Description: </label>
-                <input [(ngModel)]="selectedPostcode.description" placeholder="description/name" />
-            </div>
-        </div>
+        <postcode-detail [postcode]="selectedPostcode"></postcode-detail>
     `,
     styles: [`
         .selected { background-color: #cfd8dc !important; color: white; }
