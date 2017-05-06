@@ -2,9 +2,7 @@ import { Component } from "@angular/core";
 
 @Component({
     selector: "pw-dashboard",
-    template: `
-    <h2>Dashboard</h2>
-    `
+    templateUrl: "/templates/dashboard.template.html"
 })
 
 export class DashboardComponent {}

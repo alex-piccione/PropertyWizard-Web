@@ -1,0 +1,9 @@
+<h3>Top post codes</h3>
+<div class="grid grid-pad"> 
+    <div *ngFor="let postcode of postcodes" class="col-1-4">
+        <div class="module postcode">
+            <h4>{{postcode.code}}</h4>
+            <span>{{postcode.description}}</span>
+        </div>
+    </div>
+</div>
