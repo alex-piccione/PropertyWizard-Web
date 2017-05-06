@@ -76,6 +76,8 @@ export class AppComponent {
     }     
 
     loadPostcodes(): void {
-        this.postcodes = this.postcodeService.getPostcodes();
+        this.postcodeService.getPostcodes().then(postcodes =>
+            this.postcodes = postcodes
+        );        
     }
 }
