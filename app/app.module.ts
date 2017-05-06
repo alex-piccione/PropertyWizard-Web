@@ -4,6 +4,7 @@ import { RouterModule } from "@angular/router";
 import { FormsModule } from "@angular/forms";
 
 import { AppComponent } from "./app.component";
+import { DashboardComponent } from "./dashboard.component";
 import { PostcodesComponent } from "./postcodes.component";
 import { PostcodeDetailComponent} from "./postcode-detail.component";
 import { PostcodeService } from "./postcode.service";
@@ -12,15 +13,15 @@ import { PostcodeService } from "./postcode.service";
     imports: [ 
         BrowserModule, 
         RouterModule.forRoot([
-        {   
-            path: "postcodes",
-            component: PostcodesComponent
-        }
+            { path: "", redirectTo: "/dashboard", pathMatch: "full" },
+            { path: "dashboard", component: DashboardComponent },
+            { path: "postcodes", component: PostcodesComponent }
         ]),
         FormsModule
     ],
     declarations: [ 
         AppComponent, 
+        DashboardComponent,
         PostcodesComponent,
         PostcodeDetailComponent 
     ],
