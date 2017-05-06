@@ -1,16 +1,11 @@
 import { Component } from "@angular/core";
 
-export class Listing {
-    id: number;
-    postcode: string;
-}
-
-export class PostCode {
+export class Postcode {
     code: string;
     description: string;
 }
 
-const POSTCODES: PostCode[] = [
+const POSTCODES: Postcode[] = [
     { code: "EC1", description: "London EC1" },
     { code: "EC2", description: "London EC2" },
     { code: "EC3", description: "London EC3" },
@@ -20,17 +15,21 @@ const POSTCODES: PostCode[] = [
 @Component({
     selector: "pw-app",
     template: `<h1>{{title}}</h1>
-        <h2>{{listing.postcode}}</h2>
-        <div><label>Id: </label>{{listing.id}}</div>
-        <div>   
-            <label>Post code</label>
-            <input [(ngModel)]="listing.postcode" placeholder="post code" >
-        </div>
         <ul class="postcodes">
-            <li *ngFor="let postcode of postcodes">
+            <li *ngFor="let postcode of postcodes" (click)="onSelect(postcode)" [class.selected]="postcode === selectedPostcode">
                 <span class="badge">{{postcode.code}}</span> {{postcode.description}}
             </li>
         </ul>
+        <div *ngIf="selectedPostcode">
+            <h2>{{selectedPostcode.code}} {{selectedPostcode.description}} details</h2>
+            <div>
+                <label>Code: </label>{{selectedPostcode.code}}
+            </div>
+            <div>
+                <label>Description: </label>
+                <input [(ngModel)]="selectedPostcode.description" placeholder="description/name" />
+            </div>
+        </div>
     `,
     // `<h1>Component: {{title}}. Listing: {{listing.id}}, postcode: {{listing.postcode}}.</h1>`
     styles: [`
@@ -45,7 +44,7 @@ const POSTCODES: PostCode[] = [
             cursor: pointer;
             position: relative;
             left: 0;
-            backtground-color: #eee;
+            background-color: #eee;
             margin: .5em;
             padding: .3em 0;
             height: 1.6em;
@@ -80,9 +79,9 @@ const POSTCODES: PostCode[] = [
 
 export class AppComponent { 
     title = "Listing";
-    listing: Listing = {
-        id: 3,
-        postcode: ''
-    };
     postcodes = POSTCODES;
+    selectedPostcode: Postcode;
+    onSelect(postcode: Postcode): void {
+        this.selectedPostcode = postcode;
+    } 
 }
