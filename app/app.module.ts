@@ -15,7 +15,8 @@ import { PostcodeService } from "./postcode.service";
         RouterModule.forRoot([
             { path: "", redirectTo: "/dashboard", pathMatch: "full" },
             { path: "dashboard", component: DashboardComponent },
-            { path: "postcodes", component: PostcodesComponent }
+            { path: "postcodes", component: PostcodesComponent },
+            { path: "detail/:id", component: PostcodeDetailComponent }
         ]),
         FormsModule
     ],

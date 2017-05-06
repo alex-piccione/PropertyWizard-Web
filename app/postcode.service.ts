@@ -5,7 +5,13 @@ import { POSTCODES } from "./mock-postcodes";
 
 @Injectable()
 export class PostcodeService {
+    
     getPostcodes(): Promise<Postcode[]> {
         return Promise.resolve(POSTCODES);  
+    }
+
+    getPostcode(id: number): Promise<Postcode> {
+        return this.getPostcodes()
+            .then(postcodes => postcodes.find(postcode => postcode.id === id));
     }
 }

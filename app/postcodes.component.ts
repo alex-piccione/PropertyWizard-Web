@@ -12,7 +12,7 @@ import { PostcodeService } from "./postcode.service";
                 <span class="badge">{{postcode.code}}</span> {{postcode.description}}
             </li>
         </ul>
-        <postcode-detail [postcode]="selectedPostcode"></postcode-detail>
+        <postcode-detail></postcode-detail>
     `,
     styles: [`
         .selected { background-color: #cfd8dc !important; color: white; }
