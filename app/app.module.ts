@@ -3,6 +3,7 @@ import { BrowserModule } from "@angular/platform-browser";
 import { RouterModule } from "@angular/router";
 import { FormsModule } from "@angular/forms";
 
+import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { DashboardComponent } from "./dashboard.component";
 import { PostcodesComponent } from "./postcode list.component";
@@ -12,13 +13,8 @@ import { PostcodeService } from "./postcode.service";
 @NgModule({
     imports: [ 
         BrowserModule, 
-        RouterModule.forRoot([
-            { path: "", redirectTo: "/dashboard", pathMatch: "full" },
-            { path: "dashboard", component: DashboardComponent },
-            { path: "postcodes", component: PostcodesComponent },
-            { path: "detail/:id", component: PostcodeDetailComponent }
-        ]),
-        FormsModule
+        FormsModule,
+        AppRoutingModule
     ],
     declarations: [ 
         AppComponent, 
