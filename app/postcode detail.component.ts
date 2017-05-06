@@ -8,7 +8,8 @@ import { PostcodeService } from "./postcode.service";
 
 @Component({
     selector: "postcode-detail",
-    templateUrl: "/templates/postcode detail.html" 
+    templateUrl: "templates/postcode detail.html",
+    styleUrls: ["templates/postcode detail.css"]
 })
 
 export class PostcodeDetailComponent implements OnInit {

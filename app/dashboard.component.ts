@@ -6,7 +6,8 @@ import { Postcode } from "./postcode";
 
 @Component({
     selector: "pw-dashboard",
-    templateUrl: "/templates/dashboard.template.html"
+    templateUrl: "templates/dashboard.html",
+    styleUrls: ["templates/dashboard.css"]    
 })
 
 export class DashboardComponent {
