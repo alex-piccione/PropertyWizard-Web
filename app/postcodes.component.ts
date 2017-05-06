@@ -56,8 +56,7 @@ import { PostcodeService } from "./postcode.service";
             margin-right: .8em;
             border-radius: 4px 0 0 4px;
         }
-    `],
-    providers: [ PostcodeService ]
+    `]
 })
 
 export class PostcodesComponent { 
