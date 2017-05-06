@@ -6,7 +6,8 @@ import { Component } from "@angular/core";
     selector: "pw-app",
     template: `
     <h1>{{title}}</h1>
-    <pw-postcodes></pw-postcodes>
+    <a routerLink="/postcodes">Post codes</a>
+    <router-outlet><router-outlet>
     `
 })
 
