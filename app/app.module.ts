@@ -5,8 +5,8 @@ import { FormsModule } from "@angular/forms";
 
 import { AppComponent } from "./app.component";
 import { DashboardComponent } from "./dashboard.component";
-import { PostcodesComponent } from "./postcodes.component";
-import { PostcodeDetailComponent} from "./postcode-detail.component";
+import { PostcodesComponent } from "./postcode list.component";
+import { PostcodeDetailComponent} from "./postcode detail.component";
 import { PostcodeService } from "./postcode.service";
 
 @NgModule({
