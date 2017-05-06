@@ -1,19 +1,12 @@
 import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
+
 import { Postcode} from "./Postcode";
 import { PostcodeService } from "./postcode.service";
 
 @Component({    
     selector: "pw-postcodes",
-    template: `<h1>{{title}}</h1>
-        <ul class="postcodes">
-            <li *ngFor="let postcode of postcodes" 
-                (click)="onSelect(postcode)" 
-                [class.selected]="postcode === selectedPostcode">
-                <span class="badge">{{postcode.code}}</span> {{postcode.description}}
-            </li>
-        </ul>
-        <postcode-detail></postcode-detail>
-    `,
+    templateUrl: "/templates/postcode list.html",
     styles: [`
         .selected { background-color: #cfd8dc !important; color: white; }
         .postcodes { 
@@ -64,7 +57,10 @@ export class PostcodesComponent {
     postcodes: Postcode[];
     selectedPostcode: Postcode;
 
-    constructor(private postcodeService: PostcodeService) { }
+    constructor(
+        private postcodeService: PostcodeService,
+        private router: Router
+    ) { }
 
     ngOnInit(): void {        
         this.loadPostcodes();
@@ -78,5 +74,9 @@ export class PostcodesComponent {
         this.postcodeService.getPostcodes().then(postcodes =>
             this.postcodes = postcodes
         );        
+    }
+
+    gotoDetail(): void {
+        this.router.navigate(["detail", this.selectedPostcode.id]);        
     }
 }

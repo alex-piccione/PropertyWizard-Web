@@ -1,0 +1,12 @@
+<h1>{{title}}</h1>
+<ul class="postcodes">
+    <li *ngFor="let postcode of postcodes" 
+        (click)="onSelect(postcode)" 
+        [class.selected]="postcode === selectedPostcode">
+        <span class="badge">{{postcode.code}}</span> {{postcode.description}}
+    </li>
+</ul>
+<div *ngIf="selectedPostcode">
+    <h2>{{selectedPostcode.code}}</h2>
+    <button (click)="gotoDetail()">View details</button>
+</div>
