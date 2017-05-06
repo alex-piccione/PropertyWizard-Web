@@ -1,15 +1,8 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { Postcode} from "./Postcode";
-//import { PostcodeDetailComponent } from "./postcode-detail.component"
+import { PostcodeService } from "./postcode.service";
 
-const POSTCODES: Postcode[] = [
-    { id: 1, code: "EC1", description: "London EC1" },
-    { id: 2, code: "EC2", description: "London EC2" },
-    { id: 3, code: "EC3", description: "London EC3" },
-    { id: 4, code: "EC4", description: "London EC4" }
-]
-
-@Component({
+@Component({    
     selector: "pw-app",
     template: `<h1>{{title}}</h1>
         <ul class="postcodes">
@@ -63,14 +56,26 @@ const POSTCODES: Postcode[] = [
             margin-right: .8em;
             border-radius: 4px 0 0 4px;
         }
-    `]
+    `],
+    providers: [ PostcodeService ]
 })
 
 export class AppComponent { 
-    title = "Listings";
-    postcodes = POSTCODES;
+    title: string = "Listings";
+    postcodes: Postcode[];
     selectedPostcode: Postcode;
+
+    constructor(private postcodeService: PostcodeService) { }
+
+    ngOnInit(): void {        
+        this.loadPostcodes();
+    }
+
     onSelect(postcode: Postcode): void {
         this.selectedPostcode = postcode;
-    } 
+    }     
+
+    loadPostcodes(): void {
+        this.postcodes = this.postcodeService.getPostcodes();
+    }
 }
