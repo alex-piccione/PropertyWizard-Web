@@ -16,7 +16,9 @@ const POSTCODES: Postcode[] = [
     selector: "pw-app",
     template: `<h1>{{title}}</h1>
         <ul class="postcodes">
-            <li *ngFor="let postcode of postcodes" (click)="onSelect(postcode)" [class.selected]="postcode === selectedPostcode">
+            <li *ngFor="let postcode of postcodes" 
+                (click)="onSelect(postcode)" 
+                [class.selected]="postcode === selectedPostcode">
                 <span class="badge">{{postcode.code}}</span> {{postcode.description}}
             </li>
         </ul>
@@ -31,7 +33,6 @@ const POSTCODES: Postcode[] = [
             </div>
         </div>
     `,
-    // `<h1>Component: {{title}}. Listing: {{listing.id}}, postcode: {{listing.postcode}}.</h1>`
     styles: [`
         .selected { background-color: #cfd8dc !important; color: white; }
         .postcodes { 
@@ -78,7 +79,7 @@ const POSTCODES: Postcode[] = [
 })
 
 export class AppComponent { 
-    title = "Listing";
+    title = "Listings";
     postcodes = POSTCODES;
     selectedPostcode: Postcode;
     onSelect(postcode: Postcode): void {
