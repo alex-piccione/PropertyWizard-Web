@@ -18,4 +18,4 @@ Property Wizard Web site.
     Write "rsa" followed by a space and/or new line and the public part of the key
 1. In TeamCity VCS settings select the "Custom private key" option in Authentication Settings.
 1. Set the username and the path to the key.
-1. For PAssphrase I used my email. (?)
+1. Set Passphrase if it was set when the key was created (optional)
