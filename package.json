@@ -37,11 +37,11 @@
     "@types/node": "^6.0.46",
     "@types/jasmine": "2.5.36"
   },
-  "scripts": {
-    "start": "concurrently \"npm run build:watch\" \"npm run serve\"",
+  "scripts": {    
     "build": "tsc -p app/",
     "build:watch": "tsc -p app/ --watch",
-    "serve": "lite-server -c=bs-config.json",
-    "prestart": "npm run build"
+    "start_server": "lite-server -c=bs-config.json",
+    "prestart": "npm run build",
+    "start_dev": "concurrently \"npm run build:watch\" \"npm run start_server\""
   }
 }
