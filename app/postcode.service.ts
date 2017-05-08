@@ -9,6 +9,7 @@ import { Postcode } from "./Postcode";
 export class PostcodeService {
     
     private postcodeApiUrl = "api/postcodes";
+    private headers = new Headers({"Content-Type": "application/json"});
 
     constructor(private http: Http ) {}
 
@@ -25,6 +26,15 @@ export class PostcodeService {
         return this.http.get(url)
             .toPromise()
             .then(response => response.json().data as Postcode)
+            .catch(this.handleError);
+    }
+
+    update(postcode: Postcode): Promise<Postcode> {
+        const url = `${this.postcodeApiUrl}/${postcode.id}`;
+        return this.http
+            .put(url, JSON.stringify(postcode), {headers: this.headers})
+            .toPromise()
+            .then(() => postcode)
             .catch(this.handleError);
     }
 

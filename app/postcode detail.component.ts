@@ -31,4 +31,9 @@ export class PostcodeDetailComponent implements OnInit {
     goBack(): void {
         this.location.back();        
     }
+
+    save(): void {
+        this.postcodeService.update(this.postcode)
+            .then(() => this.goBack());
+    }
 }
