@@ -37,4 +37,17 @@ export class PostcodesComponent {
     gotoDetail(): void {
         this.router.navigate(["detail", this.selectedPostcode.id]);        
     }
+
+    add(code: string, description: string): void {
+        code = code.trim();
+        description = description.trim();
+        if(!code || !description) 
+            return;
+        this.postcodeService.create(code, description)
+            .then(postcode =>  {
+                this.postcodes.push(postcode);
+                this.selectedPostcode = null;
+            })
+
+    }
 }

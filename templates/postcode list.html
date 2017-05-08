@@ -1,4 +1,12 @@
 <h1>{{title}}</h1>
+<div>
+    <h2>New post code</h2>
+    <label>Code:</label> <input #code>
+    <br/>    
+    <label>Description:</label> <input #description>
+    <button (click)="add(code.value, description.value); code.value=''; description.value='' ">add</button>
+    <br/>  
+</div>
 <ul class="postcodes">
     <li *ngFor="let postcode of postcodes" 
         (click)="onSelect(postcode)" 

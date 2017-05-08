@@ -38,6 +38,13 @@ export class PostcodeService {
             .catch(this.handleError);
     }
 
+    create(code: string, description: string): Promise<Postcode> {
+        return this.http.post(this.postcodeApiUrl, JSON.stringify({"code": code, "description": description}), {headers: this.headers})
+            .toPromise()
+            .then(response => response.json().data as Postcode)
+            .catch(this.handleError);
+    }
+
     handleError(error: any): Promise<any> {
         console.error("An error occurred", error);
         return Promise.reject(error.message || error);
