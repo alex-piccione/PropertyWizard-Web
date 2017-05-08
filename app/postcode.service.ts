@@ -45,6 +45,14 @@ export class PostcodeService {
             .catch(this.handleError);
     }
 
+    delete(id: number): Promise<Postcode> {
+        const url = `${this.postcodeApiUrl}/${id}`;
+        return this.http.delete(url, {headers: this.headers})
+            .toPromise()
+            .then(() => null)
+            .catch(this.handleError);
+    }
+
     handleError(error: any): Promise<any> {
         console.error("An error occurred", error);
         return Promise.reject(error.message || error);

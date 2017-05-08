@@ -12,6 +12,7 @@
         (click)="onSelect(postcode)" 
         [class.selected]="postcode === selectedPostcode">
         <span class="badge">{{postcode.code}}</span> {{postcode.description}}
+        <button class="delete" (click)="delete(postcode); $event.stopPropagation()">x</button>
     </li>
 </ul>
 <div *ngIf="selectedPostcode">
