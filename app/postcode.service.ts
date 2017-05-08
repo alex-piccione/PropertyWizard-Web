@@ -8,19 +8,20 @@ import { Postcode } from "./Postcode";
 @Injectable()
 export class PostcodeService {
     
-    private postcodesApiUrl = "api/postcode";
+    private postcodeApiUrl = "api/postcodes";
 
     constructor(private http: Http ) {}
 
     getPostcodes(): Promise<Postcode[]> {
-        return this.http.get(this.postcodesApiUrl)
+        return this.http.get(this.postcodeApiUrl)
             .toPromise()
             .then(response => response.json().data as Postcode[])
             .catch(this.handleError);
     }
 
     getPostcode(id: number): Promise<Postcode> {
-        const url = "${postcodesApiUrl}/${id}";
+        const url = `${this.postcodeApiUrl}/${id}`;
+        console.log(url)
         return this.http.get(url)
             .toPromise()
             .then(response => response.json().data as Postcode)
