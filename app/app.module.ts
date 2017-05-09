@@ -9,10 +9,13 @@ import { InMemoryWebApiModule } from "angular-in-memory-web-api";
 import { InMemoryDataService } from "./in-memory-data.service";
 
 import { AppRoutingModule } from "./app-routing.module";
+// components
 import { AppComponent } from "./app.component";
 import { DashboardComponent } from "./dashboard.component";
 import { PostcodesComponent } from "./postcode list.component";
-import { PostcodeDetailComponent} from "./postcode detail.component";
+import { PostcodeDetailComponent } from "./postcode detail.component";
+import { PostcodeSearchComponent } from "./postcode search.component";
+// services
 import { PostcodeService } from "./postcode.service";
 
 @NgModule({
@@ -27,7 +30,8 @@ import { PostcodeService } from "./postcode.service";
         AppComponent, 
         DashboardComponent,
         PostcodesComponent,
-        PostcodeDetailComponent 
+        PostcodeDetailComponent,
+        PostcodeSearchComponent
     ],
     bootstrap: [ AppComponent ],
     providers: [

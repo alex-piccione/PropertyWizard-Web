@@ -13,7 +13,7 @@ import { PostcodeService } from "./postcode.service";
 })
 
 export class PostcodeDetailComponent implements OnInit {
-    postcode: Postcode;
+    postcode: Postcode = null;
 
     constructor(
         private postcodeService: PostcodeService,
