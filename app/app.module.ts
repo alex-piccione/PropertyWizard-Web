@@ -17,6 +17,7 @@ import { PostcodeDetailComponent } from "./postcode detail.component";
 import { PostcodeSearchComponent } from "./postcode search.component";
 // services
 import { PostcodeService } from "./postcode.service";
+import { PostcodeSearchService } from "./postcode search.service";
 
 @NgModule({
     imports: [ 
@@ -35,7 +36,8 @@ import { PostcodeService } from "./postcode.service";
     ],
     bootstrap: [ AppComponent ],
     providers: [
-        PostcodeService
+        PostcodeService,
+        PostcodeSearchService
     ]
 })
 

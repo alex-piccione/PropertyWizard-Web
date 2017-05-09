@@ -1,4 +1,5 @@
-import { Component } from "@angular/core";
+import { Component, Injectable } from "@angular/core";
+import { Http } from "@angular/http";
 
 import { PostcodeSearchService } from "./postcode search.service";
 
@@ -8,13 +9,11 @@ import { PostcodeSearchService } from "./postcode search.service";
     styleUrls: ["templates/postcode search.css"]
 })
 
-
+@Injectable()
 export class PostcodeSearchComponent {
 
     constructor(private postcodeSearchService: PostcodeSearchService)
     {
-        
-    }
 
-    
+    }    
 }
