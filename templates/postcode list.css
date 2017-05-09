@@ -64,4 +64,4 @@ button.delete {
   background-color: gray !important;
   color: white;
 }
-button.delete:hover { background-color: darkred;}
+button.delete:hover { background-color: darkred !important; }
