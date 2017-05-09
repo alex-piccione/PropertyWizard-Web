@@ -1,6 +1,6 @@
 <div>
     <h4>Search</h4>
-    <input #search id="search-box" (keyup)="search(search.value)" />
+    <input #searchbox id="search-box" (keyup)="search(searchbox.value)" />
     <div>
         <div *ngFor="let postcode of postcodes | async"
             (click)="gotoDetail(postcode)" class="search-result">
