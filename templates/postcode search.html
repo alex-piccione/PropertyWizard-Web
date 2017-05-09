@@ -1,3 +1,10 @@
 <div>
-postcode search
+    <h4>Search</h4>
+    <input #search id="search-box" (keyup)="search(search.value)" />
+    <div>
+        <div *ngFor="let postcode of postcodes | async"
+            (click)="gotoDetail(postcode)" class="search-result">
+            {{postcode.code}} - {{postcode.description}}
+        </div>
+    </div>
 </div>
