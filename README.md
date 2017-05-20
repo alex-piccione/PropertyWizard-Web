@@ -75,10 +75,27 @@ if you run it in the root folder it compile ALL the node_modules files !!!
 
 # Deploy NodeJS on Windows server
 
+## Prerequisites
+
 1. Install NodeJS.
-1. Restart (because node and npm should be visible from command line)
+1. Restart (because Node and npm should be visible from the command line)
 1. In the web site folder run "npm install"
 
+## Continuous delivery
+
+1. Merge to "master" branch
+1. TeamCity trigger start the deployment process
+1. Content from "master" btanch is retrieved and stored in the "checkout" folder.
+1. `npm install` is run (in the checkout folder)
+1. `npm run build` is run (to build TypeScript) (in the checkout folder)
+1. Cleanup of destination directory (excluded logs) and copy of the new files
+1. `start npm run start_server` is run to start the server. Is it needed?
+
+
+# Run the NodeJS application
+
+To run the application you must execute "npm start_server" (it execute the corresponding command in package.json "scripts" section).
+How to run it in IIS ?
 
 # TeamCity and SSH Key
 
