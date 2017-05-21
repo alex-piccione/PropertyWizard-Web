@@ -7,30 +7,54 @@ import { Postcode } from "./Postcode";
 
 @Injectable()
 export class PostcodeService {
-    
-    private postcodeApiUrl = "api/postcodes";
+
+    private baseUrl = "http://api.propertywizard.org/postcode";    
     private headers = new Headers({"Content-Type": "application/json"});
 
     constructor(private http: Http ) {}
 
+    getApiUrl(url: string): string {
+        return `${this.baseUrl}/${url}`;
+    }
+
     getPostcodes(): Promise<Postcode[]> {
-        return this.http.get(this.postcodeApiUrl)
+        const url = this.getApiUrl("");
+        return this.http.get(url)
             .toPromise()
-            .then(response => response.json().data as Postcode[])
+            .then(response => this.parsePostcodes(response.json()))
             .catch(this.handleError);
     }
 
-    getPostcode(id: number): Promise<Postcode> {
-        const url = `${this.postcodeApiUrl}/${id}`;
-        console.log(url)
+    getPostcode(code: string): Promise<Postcode> {
+        console.log("getPostcode(" + code + ")");
+        const url = this.getApiUrl(`${code}`);
+        console.log(url);
         return this.http.get(url)
             .toPromise()
-            .then(response => response.json().data as Postcode)
+            .then(response => this.parsePostcode(response.json()))
             .catch(this.handleError);
+    }
+
+    parsePostcode(json: any) :Postcode {  
+        var postcode = new Postcode(); 
+        postcode.code = json.code;
+        postcode.description = json.description;
+        return postcode;
+    }
+
+    parsePostcodes(json: any[]): Postcode[] {
+        var postcodes:Postcode[] = [];
+        json.forEach(elem => {
+            let postcode = new Postcode();
+            postcode.code = elem.code;
+            postcode.description = elem.description;
+            postcodes.push(postcode);
+        });        
+        return postcodes;
     }
 
     update(postcode: Postcode): Promise<Postcode> {
-        const url = `${this.postcodeApiUrl}/${postcode.id}`;
+        const url = this.getApiUrl(`${postcode.code}`); 
         return this.http
             .put(url, JSON.stringify(postcode), {headers: this.headers})
             .toPromise()
@@ -39,14 +63,15 @@ export class PostcodeService {
     }
 
     create(code: string, description: string): Promise<Postcode> {
-        return this.http.post(this.postcodeApiUrl, JSON.stringify({"code": code, "description": description}), {headers: this.headers})
+        const url = this.getApiUrl("");
+        return this.http.post(url, JSON.stringify({"code": code, "description": description}), {headers: this.headers})
             .toPromise()
             .then(response => response.json().data as Postcode)
             .catch(this.handleError);
     }
 
-    delete(id: number): Promise<Postcode> {
-        const url = `${this.postcodeApiUrl}/${id}`;
+    delete(code: string): Promise<Postcode> {
+        const url = this.getApiUrl("${code}");
         return this.http.delete(url, {headers: this.headers})
             .toPromise()
             .then(() => null)

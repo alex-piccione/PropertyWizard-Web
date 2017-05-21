@@ -11,7 +11,7 @@ const routes: Routes = [
     { path: "dashboard", component: DashboardComponent },    
     { path: "postcodes", component: PostcodesComponent },
     { path: "search", component: PostcodeSearchComponent },
-    { path: "detail/:id", component: PostcodeDetailComponent }
+    { path: "detail/:code", component: PostcodeDetailComponent }
 ] 
 
 @NgModule({

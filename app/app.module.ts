@@ -24,7 +24,7 @@ import { PostcodeSearchService } from "./postcode search.service";
         BrowserModule, 
         FormsModule,
         HttpModule,
-        InMemoryWebApiModule.forRoot(InMemoryDataService),
+        //InMemoryWebApiModule.forRoot(InMemoryDataService),
         AppRoutingModule
     ],
     declarations: [ 

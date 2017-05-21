@@ -35,7 +35,7 @@ export class PostcodesComponent {
     }
 
     gotoDetail(): void {
-        this.router.navigate(["detail", this.selectedPostcode.id]);        
+        this.router.navigate(["detail", this.selectedPostcode.code]);        
     }
 
     add(code: string, description: string): void {
@@ -52,7 +52,7 @@ export class PostcodesComponent {
     }
 
     delete(postcode: Postcode): void {
-        this.postcodeService.delete(postcode.id)
+        this.postcodeService.delete(postcode.code)
             .then(() => {
                 this.postcodes = this.postcodes.filter(p => p !== postcode);
                 if(this.selectedPostcode === postcode)

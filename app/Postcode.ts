@@ -1,5 +1,6 @@
 export class Postcode {
-    id: number;
     code: string;
     description: string;
 }
+
+// todo: constructor: http://cloudmark.github.io/Json-Mapping/

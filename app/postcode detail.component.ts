@@ -24,7 +24,7 @@ export class PostcodeDetailComponent implements OnInit {
 
     ngOnInit(): void {
         this.route.params
-            .switchMap((params: Params) => this.postcodeService.getPostcode(+params["id"]))
+            .switchMap((params: Params) => this.postcodeService.getPostcode(params["code"]) )
             .subscribe(postcode => this.postcode = postcode);
     }
 
