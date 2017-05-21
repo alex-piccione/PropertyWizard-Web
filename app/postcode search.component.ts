@@ -56,7 +56,7 @@ export class PostcodeSearchComponent implements OnInit {
     }
 
     gotoDetail(postcode: Postcode): void {
-        let link = ["/detail", postcode.id];
+        let link = ["/detail", postcode.code];
         this.router.navigate(link);
     }
 }
