@@ -26,9 +26,7 @@ export class PostcodeService {
     }
 
     getPostcode(code: string): Promise<Postcode> {
-        console.log("getPostcode(" + code + ")");
         const url = this.getApiUrl(`${code}`);
-        console.log(url);
         return this.http.get(url)
             .toPromise()
             .then(response => this.parsePostcode(response.json()))
@@ -71,7 +69,7 @@ export class PostcodeService {
     }
 
     delete(code: string): Promise<Postcode> {
-        const url = this.getApiUrl("${code}");
+        const url = this.getApiUrl(`${code}`);
         return this.http.delete(url, {headers: this.headers})
             .toPromise()
             .then(() => null)
