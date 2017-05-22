@@ -62,9 +62,14 @@ export class PostcodeService {
 
     create(code: string, description: string): Promise<Postcode> {
         const url = this.getApiUrl("");
-        return this.http.post(url, JSON.stringify({"code": code, "description": description}), {headers: this.headers})
+        const postcode: Postcode = new Postcode();
+        postcode.code = code;
+        postcode.description = description;
+
+        return this.http.post(url, JSON.stringify(postcode /*{"code": code, "description": description}*/), {headers: this.headers})
             .toPromise()
-            .then(response => response.json().data as Postcode)
+            //.then(response =>  response.json().data as Postcode)
+            .then(response =>  postcode)
             .catch(this.handleError);
     }
 
