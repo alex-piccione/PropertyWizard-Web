@@ -1,5 +1,25 @@
-<h2>Listing on postcode {{postCode}}</h2>
+<h2>Listings on post code "{{postCode}}"</h2>
 
-[work in progress]
+<!-- Angular2 table: http://valor-software.com/ng2-table/ -->
+
+<table>
+    <thead>
+        <th>#</th>
+        <th>Id</th>
+        <th>Agency</th>
+        <th>Price</th>
+        <th>Last publish date</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let listing of listings; let i = index">
+            <td>{{i+1}}</td>
+            <td>{{listing.id}}</td>
+            <td>{{listing.agency}}</td>
+            <td>{{listing.price}}</td>
+            <td>{{listing.lastPublishDate}}</td>
+        </tr>
+    </tbody>
+</table>
+
 
 <!-- example for pagination: https://angular-2-training-book.rangle.io/handout/routing/query_params.html -->

@@ -24,9 +24,11 @@ export class ListingListComponent implements OnInit {
     { }
 
     ngOnInit(): void {
-        this.route.queryParams.subscribe( data => {
-                console.log('queryParams', data['postcode']);
+        this.route.queryParams.subscribe( data => {                
                 this.postCode = data["postcode"];
+                this.listingService.getListings(this.postCode).then( listings =>
+                    this.listings = listings
+                );
             });
 
         //this.route.params

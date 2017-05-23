@@ -1,5 +1,6 @@
 export class Listing {
     id: number;
     agency: string;
-    description: string;
+    price: string;
+    lastPublishDate: string;
 }
