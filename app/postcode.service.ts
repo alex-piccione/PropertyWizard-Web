@@ -69,7 +69,7 @@ export class PostcodeService {
         return this.http.post(url, JSON.stringify(postcode /*{"code": code, "description": description}*/), {headers: this.headers})
             .toPromise()
             //.then(response =>  response.json().data as Postcode)
-            .then(response =>  postcode)
+            .then(response => postcode)
             .catch(this.handleError);
     }
 

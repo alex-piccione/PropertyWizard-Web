@@ -1,30 +1,27 @@
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
-//import { RouterModule } from "@angular/router";
 import { FormsModule } from "@angular/forms";
 import { HttpModule } from "@angular/http";
 
-// imports for loading and configuring the in-memory web api
-import { InMemoryWebApiModule } from "angular-in-memory-web-api";
-import { InMemoryDataService } from "./in-memory-data.service";
-
 import { AppRoutingModule } from "./app-routing.module";
+
 // components
 import { AppComponent } from "./app.component";
 import { DashboardComponent } from "./dashboard.component";
 import { PostcodesComponent } from "./postcode list.component";
 import { PostcodeDetailComponent } from "./postcode detail.component";
 import { PostcodeSearchComponent } from "./postcode search.component";
+import { ListingListComponent } from "./listing list.component";
 // services
 import { PostcodeService } from "./postcode.service";
 import { PostcodeSearchService } from "./postcode search.service";
+import { ListingService } from "./listing.service";
 
 @NgModule({
     imports: [ 
         BrowserModule, 
         FormsModule,
         HttpModule,
-        //InMemoryWebApiModule.forRoot(InMemoryDataService),
         AppRoutingModule
     ],
     declarations: [ 
@@ -32,12 +29,14 @@ import { PostcodeSearchService } from "./postcode search.service";
         DashboardComponent,
         PostcodesComponent,
         PostcodeDetailComponent,
-        PostcodeSearchComponent
+        PostcodeSearchComponent,
+        ListingListComponent
     ],
     bootstrap: [ AppComponent ],
     providers: [
         PostcodeService,
-        PostcodeSearchService
+        PostcodeSearchService,
+        ListingService
     ]
 })
 

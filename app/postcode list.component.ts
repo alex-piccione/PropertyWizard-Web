@@ -38,17 +38,20 @@ export class PostcodesComponent {
         this.router.navigate(["detail", this.selectedPostcode.code]);        
     }
 
+    gotoListings(): void{
+        this.router.navigate(["listing"], { queryParams: { postcode: this.selectedPostcode.code}});
+    }
+
     add(code: string, description: string): void {
         code = code.trim();
         description = description.trim();
         if(!code || !description) 
             return;
         this.postcodeService.create(code, description)
-            .then(postcode =>  {
+            .then(postcode => {
                 this.postcodes.push(postcode);
                 this.selectedPostcode = null;
-            })
-
+            });
     }
 
     delete(postcode: Postcode): void {
