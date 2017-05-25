@@ -25,6 +25,7 @@ export class ListingService {
             .catch(this.handleError);
     }
 
+    // create a parser class
     parseListings(data: any[]): Listing[] {
         let listings: Listing[] = [];
         data.forEach(element => {
@@ -34,6 +35,13 @@ export class ListingService {
             listing.agency = element.agencyName; // get mapped code
             listing.price = element.price;
             listing.lastPublishDate = element.lastPublishDate;
+
+            listing.propertyType = element.propertyType;
+            listing.category = element.category;
+            listing.latitude = element.latitude;
+            listing.longitude = element.longitude;
+            listing.address = element.address;
+
             listings.push(listing);
         });
         return listings;

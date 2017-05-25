@@ -3,4 +3,10 @@ export class Listing {
     agency: string;
     price: string;
     lastPublishDate: string;
+
+    propertyType: string;
+    category: string;
+    latitude: number;
+    longitude: number;
+    address: string;
 }

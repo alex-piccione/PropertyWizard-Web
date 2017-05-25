@@ -14,6 +14,11 @@
         <th>Agency</th>
         <th>Price</th>
         <th>Last publish date</th>
+        <th>Property type</th>
+        <th>Category</th>        
+        <th>Latitude</th>
+        <th>Longitude</th>
+        <th>Address</th>
     </thead>
     <tbody>
         <tr *ngFor="let listing of listings; let i = index">
@@ -22,10 +27,14 @@
             <td>{{listing.agency}}</td>
             <td>{{listing.price}}</td>
             <td>{{listing.lastPublishDate}}</td>
+            <td>{{listing.propertyType}}</td>
+            <td>{{listing.category}}</td>
+            <td>{{listing.latitude}}</td>
+            <td>{{listing.longitude}}</td>
+            <td>{{listing.address}}</td>
         </tr>
     </tbody>
 </table>
 </div>
-
 
 <!-- example for pagination: https://angular-2-training-book.rangle.io/handout/routing/query_params.html -->
