@@ -2,6 +2,11 @@
 
 <!-- Angular2 table: http://valor-software.com/ng2-table/ -->
 
+<div *ngIf="listings.length == 0">
+    No listings found for this post code.
+</div>
+
+<div *ngIf="listings.length > 0">
 <table>
     <thead>
         <th>#</th>
@@ -20,6 +25,7 @@
         </tr>
     </tbody>
 </table>
+</div>
 
 
 <!-- example for pagination: https://angular-2-training-book.rangle.io/handout/routing/query_params.html -->
