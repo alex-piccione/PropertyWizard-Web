@@ -12,10 +12,12 @@ import { PostcodesComponent } from "./postcode list.component";
 import { PostcodeDetailComponent } from "./postcode detail.component";
 import { PostcodeSearchComponent } from "./postcode search.component";
 import { ListingListComponent } from "./listing list.component";
+import { AgencyListComponent } from "./agency list.component";
 // services
 import { PostcodeService } from "./postcode.service";
 import { PostcodeSearchService } from "./postcode search.service";
 import { ListingService } from "./listing.service";
+import { AgencyService } from "./agency.service";
 
 @NgModule({
     imports: [ 
@@ -30,13 +32,15 @@ import { ListingService } from "./listing.service";
         PostcodesComponent,
         PostcodeDetailComponent,
         PostcodeSearchComponent,
-        ListingListComponent
+        ListingListComponent,
+        AgencyListComponent
     ],
     bootstrap: [ AppComponent ],
     providers: [
         PostcodeService,
         PostcodeSearchService,
-        ListingService
+        ListingService,
+        AgencyService
     ]
 })
 
