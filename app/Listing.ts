@@ -9,4 +9,6 @@ export class Listing {
     latitude: number;
     longitude: number;
     address: string;
+
+    zooplaUrl: string;
 }

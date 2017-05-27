@@ -15,6 +15,7 @@ import { ListingService } from "./listing.service";
 export class ListingListComponent implements OnInit {
     postCode: string = null;
     listings: Listing[] = [];
+    zooplaUrlBase: string = "http://www.zoopla.co.uk/new-homes/details/"
 
     constructor(
         private listingService: ListingService,
@@ -26,9 +27,10 @@ export class ListingListComponent implements OnInit {
     ngOnInit(): void {
         this.route.queryParams.subscribe( data => {                
                 this.postCode = data["postcode"];
-                this.listingService.getListings(this.postCode).then( listings =>
-                    this.listings = listings
-                );
+                this.listingService.getListings(this.postCode).then( listings => {
+                    listings.forEach( _ => _.zooplaUrl = this.zooplaUrlBase + _.id);                  
+                    this.listings = listings;
+                    });
             });
 
         //this.route.params
