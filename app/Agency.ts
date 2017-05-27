@@ -4,6 +4,6 @@ export class Agency {
 
     constructor(code: string, name: string) {
         this.code = code;
-        this.name =name;
+        this.name = name;
     }
 }
