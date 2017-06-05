@@ -3,7 +3,7 @@ import { Http } from "@angular/http";
 
 import "rxjs/add/operator/toPromise";
 
-import { Agency } from "./agency";
+import { Agency } from "./entities/agency";
 
 @Injectable()
 export class AgencyService {
@@ -25,9 +25,18 @@ export class AgencyService {
     parseAgencies(data: any[]): Agency[] {
         let agencies: Agency[] = []
         data.forEach(element => {
+            if (element.name == null) 
+                element.name = "(noname)";
             let agency = new Agency(element.code, element.name); 
             agencies.push(agency);
         });
+
+        agencies.sort(function(a, b) { 
+            return a.name < b.name ? -1 
+                : a.name > b.name ? 1
+                : 0;
+        });
+
         return agencies;
     }
 
