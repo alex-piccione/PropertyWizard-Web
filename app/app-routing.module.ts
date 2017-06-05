@@ -7,6 +7,7 @@ import { PostcodeSearchComponent } from "./postcode search.component";
 import { PostcodeDetailComponent } from "./postcode detail.component";
 import { ListingListComponent } from "./listing list.component";
 import { AgencyListComponent } from "./agency list.component";
+import { AgencyStatsComponent } from "./components/agency stats.component";
 
 const routes: Routes = [
     { path: "", redirectTo: "/dashboard", pathMatch: "full" },
@@ -16,7 +17,8 @@ const routes: Routes = [
     { path: "detail/:code", component: PostcodeDetailComponent }, // todo: change in postcodes/:code
     { path: "listing", component: ListingListComponent },
     //{ path: "listing/:listingId", component: ListingSingleComponent }
-    { path: "agencies", component: AgencyListComponent }
+    { path: "agencies", component: AgencyListComponent },
+    { path: "agencies/stats", component: AgencyStatsComponent }
 ] 
 
 @NgModule({

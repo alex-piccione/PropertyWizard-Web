@@ -13,6 +13,7 @@ import { PostcodeDetailComponent } from "./postcode detail.component";
 import { PostcodeSearchComponent } from "./postcode search.component";
 import { ListingListComponent } from "./listing list.component";
 import { AgencyListComponent } from "./agency list.component";
+import { AgencyStatsComponent } from "./components/agency stats.component";
 // services
 import { PostcodeService } from "./postcode.service";
 import { PostcodeSearchService } from "./postcode search.service";
@@ -33,7 +34,8 @@ import { AgencyService } from "./agency.service";
         PostcodeDetailComponent,
         PostcodeSearchComponent,
         ListingListComponent,
-        AgencyListComponent
+        AgencyListComponent,
+        AgencyStatsComponent
     ],
     bootstrap: [ AppComponent ],
     providers: [
