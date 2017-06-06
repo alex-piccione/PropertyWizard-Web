@@ -1,9 +1,10 @@
 import { Injectable } from "@angular/core";
-import { Http } from "@angular/http";
+import { Http, Headers } from "@angular/http";
 
 import "rxjs/add/operator/toPromise";
 
-import { Agency } from "./entities/agency";
+import { Agency } from "../entities/agency";
+import { AgencyStats } from "../entities/agency stats";
 
 @Injectable()
 export class AgencyService {
@@ -38,6 +39,12 @@ export class AgencyService {
         });
 
         return agencies;
+    }
+
+    getAgencyStats(agencyCode: string): AgencyStats[] {
+        var stats:AgencyStats[] = [];
+        // todo
+        return stats;
     }
 
     handleError(error: any): Promise<any> {

@@ -18,7 +18,7 @@ import { AgencyStatsComponent } from "./components/agency stats.component";
 import { PostcodeService } from "./postcode.service";
 import { PostcodeSearchService } from "./postcode search.service";
 import { ListingService } from "./listing.service";
-import { AgencyService } from "./agency.service";
+import { AgencyService } from "./services/agency.service";
 
 @NgModule({
     imports: [ 
