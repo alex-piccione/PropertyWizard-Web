@@ -3,8 +3,8 @@ import { ActivatedRoute, Params } from "@angular/router";
 import { Location } from "@angular/common";
 import "rxjs/add/operator/switchMap";
 
-import { Postcode } from "./Postcode";
-import { PostcodeService } from "./postcode.service";
+import { Postcode } from "../entities/postcode";
+import { PostcodeService } from "../services/postcode.service";
 
 @Component({
     selector: "postcode-detail",

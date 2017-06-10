@@ -1,5 +1,5 @@
-import {Agency} from "./agency";
-import {Postcode} from "../postcode";
+import {Agency} from "../entities/agency";
+import {Postcode} from "../entities/postcode";
 
 export class AgencyStats {
     postcode: Postcode;

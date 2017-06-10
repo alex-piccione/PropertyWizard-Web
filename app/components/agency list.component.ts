@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 
-import { Agency } from "./entities/Agency";
-import { AgencyService } from "./services/agency.service";
+import { Agency } from "../entities//Agency";
+import { AgencyService } from "../services/agency.service";
 
 @Component({
     selector: "agency-list",

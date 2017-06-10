@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 
-import { PostcodeService } from "./postcode.service";
-import { Postcode } from "./postcode";
+import { PostcodeService } from "../services/postcode.service";
+import { Postcode } from "../entities/postcode";
 
 
 @Component({

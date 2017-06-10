@@ -1,12 +1,12 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 
-import { DashboardComponent } from "./dashboard.component";
-import { PostcodesComponent } from "./postcode list.component";
-import { PostcodeSearchComponent } from "./postcode search.component";
-import { PostcodeDetailComponent } from "./postcode detail.component";
-import { ListingListComponent } from "./listing list.component";
-import { AgencyListComponent } from "./agency list.component";
+import { DashboardComponent } from "./components/dashboard.component";
+import { PostcodesComponent } from "./components/postcode list.component";
+import { PostcodeSearchComponent } from "./components/postcode search.component";
+import { PostcodeDetailComponent } from "./components/postcode detail.component";
+import { ListingListComponent } from "./components/listing list.component";
+import { AgencyListComponent } from "./components/agency list.component";
 import { AgencyStatsComponent } from "./components/agency stats.component";
 
 const routes: Routes = [

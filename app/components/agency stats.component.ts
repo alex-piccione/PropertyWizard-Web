@@ -3,10 +3,10 @@ import {Component, OnInit} from "@angular/core";
 import {Agency} from "../entities/agency";
 import {Listing} from "../entities/listing";
 import {AgencyStats} from "../entities/agency stats";
-import {Postcode} from "../postcode";
+import {Postcode} from "../entities/postcode";
 
 import {AgencyService} from "../services/agency.service";
-import {PostcodeService} from "../postcode.service";
+import {PostcodeService} from "../services/postcode.service";
 
 @Component({
     selector: "agency-stats",
@@ -31,7 +31,7 @@ export class AgencyStatsComponent {
     search() {      
         if (!this.postcode)
             return this.showWarning("A Post code must be selected");     
-            
+
         this.postcodeService.getPostcodeStatistics(this.postcode, this.agencies)
             .then(stats => this.stats = stats);
     }

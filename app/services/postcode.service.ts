@@ -3,9 +3,9 @@ import { Headers, Http } from "@angular/http";
 
 import "rxjs/add/operator/toPromise";
 
-import { Postcode } from "./Postcode";
-import { Agency } from "./entities/agency";
-import { AgencyStats } from "./entities/agency stats";
+import { Postcode } from "../entities/postcode";
+import { Agency } from "../entities/agency";
+import { AgencyStats } from "../entities/agency stats";
 
 @Injectable()
 export class PostcodeService {

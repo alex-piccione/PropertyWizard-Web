@@ -3,8 +3,8 @@ import { ActivatedRoute, Params } from "@angular/router";
 import { Location } from "@angular/common";
 import "rxjs/add/operator/switchMap";
 
-import { Listing } from "./entities/Listing";
-import { ListingService } from "./services/listing.service";
+import { Listing } from "../entities/Listing";
+import { ListingService } from "../services/listing.service";
 
 @Component({
     selector: "listing-list",

@@ -4,8 +4,8 @@ import { Router } from "@angular/router";
 import { Observable } from "rxjs/Observable";
 import { Subject } from "rxjs/Subject";
 
-import { Postcode } from "./postcode";
-import { PostcodeSearchService } from "./postcode search.service";
+import { Postcode } from "../entities/postcode";
+import { PostcodeSearchService } from "../services/postcode search.service";
 
 // Observable class extension
 import "rxjs/add/observable/of";

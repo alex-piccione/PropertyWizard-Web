@@ -1,8 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 
-import { Postcode} from "./Postcode";
-import { PostcodeService } from "./postcode.service";
+import { Postcode} from "../entities/postcode";
+import { PostcodeService } from "../services/postcode.service";
 
 @Component({    
     selector: "pw-postcodes",
