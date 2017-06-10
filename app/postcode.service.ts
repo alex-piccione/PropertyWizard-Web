@@ -4,6 +4,8 @@ import { Headers, Http } from "@angular/http";
 import "rxjs/add/operator/toPromise";
 
 import { Postcode } from "./Postcode";
+import { Agency } from "./entities/agency";
+import { AgencyStats } from "./entities/agency stats";
 
 @Injectable()
 export class PostcodeService {
@@ -33,21 +35,18 @@ export class PostcodeService {
             .catch(this.handleError);
     }
 
-    parsePostcode(json: any) :Postcode {  
-        var postcode = new Postcode(json.code, json.description); 
-        return postcode;
+    // move to its own Service
+    getPostcodeStatistics(postcode: Postcode, agencies: Agency[]): Promise<AgencyStats[]>
+    {
+        const url = this.baseUrl + `/statistics?code=${postcode.code}`;
+
+        return this.http.get(url)
+            .toPromise()
+            .then(response => this.createStatistics(response.json(), postcode, agencies))
+            .catch(this.handleError);
     }
 
-    parsePostcodes(json: any[]): Postcode[] {
-        var postcodes:Postcode[] = [];
-        json.forEach(elem => {
-            let postcode = new Postcode(elem.code, elem.description);
-            postcodes.push(postcode);
-        });        
-        return postcodes;
-    }
-
-    update(postcode: Postcode): Promise<Postcode> {
+    update(postcode: Postcode): Promise<Postcode> {        
         const url = this.getApiUrl(`${postcode.code}`); 
         return this.http
             .put(url, JSON.stringify(postcode), {headers: this.headers})
@@ -75,8 +74,42 @@ export class PostcodeService {
             .catch(this.handleError);
     }
 
-    handleError(error: any): Promise<any> {
+    // private methods //
+
+    private handleError(error: any): Promise<any> {
         console.error("An error occurred", error);
         return Promise.reject(error.message || error);
     }
+
+    private parsePostcode(json: any) :Postcode {  
+        var postcode = new Postcode(json.code, json.description); 
+        return postcode;
+    }
+
+    private parsePostcodes(json: any[]): Postcode[] {
+        var postcodes:Postcode[] = [];
+        json.forEach(elem => {
+            let postcode = new Postcode(elem.code, elem.description);
+            postcodes.push(postcode);
+        });        
+        return postcodes;
+    }
+
+    private createStatistics(json: any[], postcode: Postcode, agencies: Agency[]): AgencyStats[] {
+        var stats:AgencyStats[] = [];
+        json.forEach(elem => {
+            var agency = agencies.find(ag => ag.code == elem.agencyCode);
+            stats.push(new AgencyStats(postcode, agency, elem.noProperties));
+        });
+
+        // sort by noProperties descrending
+        stats.sort(function(a, b){ 
+            return a.noProperties < b.noProperties ? 1
+                : a.noProperties > b.noProperties ? -1
+                : 0
+        } );
+
+        return stats;
+    }
 }
+

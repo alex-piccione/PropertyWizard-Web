@@ -16,14 +16,13 @@ export class AgencyService {
 
     getAgencies(): Promise<Agency[]> {
         const url = `${this.baseUrl}`;
-        console.log("getAgencies");
         return this.http.get(url)
             .toPromise()
             .then(response => this.parseAgencies(response.json()))
             .catch(this.handleError);
     }
 
-    parseAgencies(data: any[]): Agency[] {
+    private parseAgencies(data: any[]): Agency[] {
         let agencies: Agency[] = []
         data.forEach(element => {
             if (element.name == null) 
@@ -41,13 +40,7 @@ export class AgencyService {
         return agencies;
     }
 
-    getAgencyStats(agencyCode: string): AgencyStats[] {
-        var stats:AgencyStats[] = [];
-        // todo
-        return stats;
-    }
-
-    handleError(error: any): Promise<any> {
+    private handleError(error: any): Promise<any> {
         console.error("An error occured", error);
         return Promise.reject(error.message || error);
     }

@@ -3,7 +3,7 @@ import { Headers, Http } from "@angular/http";
 
 import "rxjs/add/operator/toPromise";
 
-import { Listing } from "./Listing";
+import { Listing } from "../entities/Listing";
 
 @Injectable()
 export class ListingService {

@@ -2,7 +2,14 @@ import {Agency} from "./agency";
 import {Postcode} from "../postcode";
 
 export class AgencyStats {
-    agency: Agency;
-    postCode: Postcode;
-    noProperties: number;   
+    postcode: Postcode;
+    agency: Agency;    
+    noProperties: number;  
+
+    constructor(postcode:Postcode, agency:Agency, noProperties:number)
+    {
+        this.postcode = postcode;
+        this.agency = agency;
+        this.noProperties = noProperties;        
+    } 
 }

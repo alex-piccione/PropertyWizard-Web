@@ -1,15 +1,32 @@
 <h2>Agency Statistics </h2>
 
 <div>
-    <label>Post code</label>
-    <input type="text" #input_postcode />
-    <button (click)="search(input_postcode.value)">Search</button>
+    <label>Post code</label>    
+    <select class="form-control" [(ngModel)]="postcode">
+        <option >select one</option>
+        <option *ngFor="let p of postcodes" [ngValue]="p">{{p.description}}</option>
+    </select>
+    <button (click)="search()">Search</button>
 </div>
 
-<div>
+<hr>
 
-    
-        <h3 style="color:red">Apologies, this page in work in progress.</h3>
-    
+<div *ngIf="!stats || stats.length == 0">
+    No properties found
+</div>
 
+<div *ngIf="stats.length > 0">
+    <table>
+        <thead>
+            <th colspan="2">Agency</th>
+            <th>No. Properties</th>           
+        </thead>
+        <tbody>
+            <tr *ngFor="let record of stats; let i = index">
+                <td>{{record.agency.code}}</td>
+                <td>{{record.agency.name}}</td>
+                <td>{{record.noProperties}}</td>
+            </tr>
+        </tbody>
+    </table>
 </div>
