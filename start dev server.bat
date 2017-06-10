@@ -4,12 +4,14 @@
 ::npm run start_dev
 
 call npm run clean_windows
-call npm run build
+:: check for build errors
+call npm run build  
 
 IF %ERRORLEVEL% neq 0 GOTO :ERROR
 
-:: no error, run it
-npm run start_dev
+:: no error, continue
+npm run start_server
+
 
 GOTO END
 

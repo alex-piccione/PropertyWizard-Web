@@ -2,17 +2,12 @@
     <header>
         <title>Property Wizard</title>
         <base href="/">
-        <link rel="stylesheet" href="public/style.css">
+        <link rel="stylesheet" href="public/style.css">        
 
         <!-- Polyfill(s) for older browsers -->
-        <script src="node_modules/core-js/client/shim.min.js"></script>
-        
+        <script src="node_modules/core-js/client/shim.min.js"></script>        
         <script src="node_modules/zone.js/dist/zone.js"></script>
-        <script src="node_modules/systemjs/dist/system.src.js"></script>
-        <script src="public/systemjs.config.js"></script>
-        <script>
-            System.import("bundle.js").catch( function(err){console.error(err); });
-        </script>
+        <script src="bundle.min.js"></script>
     </header>
     <body>
         <div id="topBar"><h1>Property Wizard</h1></div>
