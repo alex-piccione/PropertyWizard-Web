@@ -23,12 +23,14 @@
     "core-js": "^2.4.1",
     "rxjs": "5.0.1",
     "zone.js": "^0.8.4",
-    "typescript": "~2.1.0"
+    "typescript": "~2.1.0",    
+    "browserify": "~14.4.0"
   },
   "devDependencies": {
     "concurrently": "^3.2.0",
     "lite-server": "^2.2.2",
-    "typescript": "~2.1.0",
+    "typescript": "~2.1.0",       
+    "browserify": "~14.4.0",
 
     "canonical-path": "0.0.2",
     "lodash": "^4.16.4",
@@ -40,7 +42,8 @@
   "scripts": {    
     "clean_linux": "rm -rf app/build",
     "clean_windows": "if exist app\\build rmdir app\\build /s /q",
-    "build": "tsc -p app/",
+    "build_": "tsc -p app/",
+    "build": "tsc -p app/ && browserify app/build/main.js -o bundle.js",
     "build:watch": "tsc -p app/ --watch",
     "start_server": "lite-server -c=bs-config.json",
     "prestart": "npm run build",
