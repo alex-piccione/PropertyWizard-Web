@@ -1,7 +1,7 @@
 {
   "name": "property-wizard-web",
   "description": "Web site of Property Wizard application",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "private": true,
   "author": {
     "name": "Alex",
@@ -50,6 +50,7 @@
     "build:watch": "tsc -p app/ --watch ",
     "build:prod": "npm run build && npm run bundle && npm run minify",
     "start_server": "lite-server -c=bs-config.json",
+    "start": "lite-server -c=bs-config.json",
     "start_dev": "concurrently \"npm run build:watch\" \"npm run start_server\""
   }
 }
