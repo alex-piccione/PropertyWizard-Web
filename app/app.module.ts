@@ -16,7 +16,7 @@ import { AgencyListComponent } from "./components/agency list.component";
 import { AgencyStatsComponent } from "./components/agency stats.component";
 // services
 import { PostcodeService } from "./services/postcode.service";
-import { PostcodeSearchService } from "./services/postcode search.service";
+import { PostcodeSearchService } from "./services/postcode_search.service";
 import { ListingService } from "./services/listing.service";
 import { AgencyService } from "./services/agency.service";
 

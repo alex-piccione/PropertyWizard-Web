@@ -5,7 +5,7 @@ import { Observable } from "rxjs/Observable";
 import { Subject } from "rxjs/Subject";
 
 import { Postcode } from "../entities/postcode";
-import { PostcodeSearchService } from "../services/postcode search.service";
+import { PostcodeSearchService } from "../services/postcode_search.service";
 
 // Observable class extension
 import "rxjs/add/observable/of";

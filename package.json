@@ -38,6 +38,8 @@
     "@types/jasmine": "2.5.36"
   },
   "scripts": {    
+    "clean_linux": "rm -rf app/build",
+    "clean_windows": "if exist app\\build rmdir app\\build /s /q",
     "build": "tsc -p app/",
     "build:watch": "tsc -p app/ --watch",
     "start_server": "lite-server -c=bs-config.json",

@@ -3,6 +3,7 @@
 :: this one ignore errors on build !
 ::npm run start_dev
 
+call npm run clean_windows
 call npm run build
 
 IF %ERRORLEVEL% neq 0 GOTO :ERROR
