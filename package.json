@@ -52,7 +52,8 @@
     "build:watch": "tsc -p app/ --watch ",
     "build:prod": "npm run build && npm run bundle && npm run minify",
     "start_server": "lite-server -c=bs-config.json",
-    "start": "lite-server -c=bs-config.prod.js",
+    "start": "npm run build:prod && npm run start_server:prod",
+    "start_server:prod": "lite-server -c=bs-config.prod.js",
     "start_dev": "concurrently \"npm run build:watch\" \"npm run start_server\""
   }
 }
