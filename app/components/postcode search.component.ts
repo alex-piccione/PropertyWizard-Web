@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 //import { Http } from "@angular/http";
-import { Observable } from "rxjs/observable";
+import { Observable } from "rxjs/Observable";
 import { Subject } from "rxjs/Subject";
 
 import { Postcode } from "../entities/postcode";
