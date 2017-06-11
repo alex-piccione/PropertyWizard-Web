@@ -1,1 +1,1 @@
-web: env PORT=3001
+web: env PORT=3001 npm run start
