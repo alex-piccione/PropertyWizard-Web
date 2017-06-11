@@ -1,6 +1,6 @@
 {
     "open": false,
-    "port":  process.env.PORT,
+    "port": 3001,
     "server": {
         "baseDir": "./",
         "routes": {
