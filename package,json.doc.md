@@ -30,3 +30,8 @@ It requires the script "start".
 
 try:
 web: env PORT=3001 npm run start --port=$PORT
+
+Error
+error TS2307: Cannot find module 'rxjs/observable'
+
+npm install rxjs -g does not solve the problem.
