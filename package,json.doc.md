@@ -25,3 +25,8 @@ Indicats to create the JavaScript files in the "build" directory.
 # Heroku
 
 It requires the script "start".
+
+## Procfile
+
+try:
+web: env PORT=3001 npm run start --port=$PORT
