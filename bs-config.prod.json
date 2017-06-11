@@ -1,14 +1,11 @@
 {
     "open": false,
-    "port":  8080,
+    "port":  process.env.PORT,
     "server": {
         "baseDir": "./",
         "routes": {
             "/node_modules": "node_modules",
             "/public": "public"
         }
-    },
-    "ui": {
-      "port": 80
     }
 }
