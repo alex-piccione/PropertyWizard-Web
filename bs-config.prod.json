@@ -1,11 +1,14 @@
 {
     "open": false,
-    "port": 3001,
+    "port": 8080,
     "server": {
         "baseDir": "./",
         "routes": {
             "/node_modules": "node_modules",
             "/public": "public"
+        },
+        "ui": {
+          "port": 3001
         }
     }
 }
