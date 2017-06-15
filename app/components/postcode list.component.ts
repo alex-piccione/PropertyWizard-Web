@@ -42,12 +42,12 @@ export class PostcodesComponent {
         this.router.navigate(["listing"], { queryParams: { postcode: this.selectedPostcode.code}});
     }
 
-    add(code: string, description: string): void {
+    add(code: string, description: string, enabled:boolean): void {
         code = code.trim();
         description = description.trim();
         if(!code || !description) 
             return;
-        this.postcodeService.create(code, description)
+        this.postcodeService.create(code, description, enabled)
             .then(postcode => {
                 this.postcodes.push(postcode);
                 this.selectedPostcode = null;

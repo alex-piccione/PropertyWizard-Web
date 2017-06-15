@@ -1,11 +1,20 @@
 <div *ngIf="postcode">
-    <h2>{{postcode.code}} - {{postcode.description}} details</h2>
+    <h1>{{postcode.code}} - {{postcode.description}} details</h1>
     <div>
         <label>Code: </label>{{postcode.code}}
     </div>
     <div>
-        <label>Description: </label>
+        <label>Description: 
         <input [(ngModel)]="postcode.description" placeholder="description/name" />
+        </label>
+    </div>
+    <div>
+        <label>Enabled:</label>
+        <input type="checkbox" [(ngModel)]="postcode.enabled" style="height: .8em">
+        <span [ngSwitch]="postcode.enabled" (click)="postcode.enabled = !postcode.enabled" style="cursor: pointer">
+            <span *ngSwitchCase="true">Yes</span>
+            <span *ngSwitchCase="false">No</span>
+        </span>        
     </div>
     <button (click)="goBack()">back</button>
     <button (click)="save()">save</button>

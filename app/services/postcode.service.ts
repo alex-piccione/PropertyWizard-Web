@@ -55,9 +55,9 @@ export class PostcodeService {
             .catch(this.handleError);
     }
 
-    create(code: string, description: string): Promise<Postcode> {
+    create(code: string, description: string, enabled:boolean): Promise<Postcode> {
         const url = this.getApiUrl("");
-        const postcode: Postcode = new Postcode(code, description);
+        const postcode: Postcode = new Postcode(code, description, enabled);
         
         return this.http.post(url, JSON.stringify(postcode /*{"code": code, "description": description}*/), {headers: this.headers})
             .toPromise()
@@ -82,14 +82,14 @@ export class PostcodeService {
     }
 
     private parsePostcode(json: any) :Postcode {  
-        var postcode = new Postcode(json.code, json.description); 
+        var postcode = new Postcode(json.code, json.description, json.enabled); 
         return postcode;
     }
 
     private parsePostcodes(json: any[]): Postcode[] {
         var postcodes:Postcode[] = [];
         json.forEach(elem => {
-            let postcode = new Postcode(elem.code, elem.description);
+            let postcode = new Postcode(elem.code, elem.description, elem.enabled);
             postcodes.push(postcode);
         });        
         return postcodes;
