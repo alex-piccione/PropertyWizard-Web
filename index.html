@@ -8,15 +8,37 @@
         <link rel="stylesheet" href="node_modules/tether/dist/css/tether.min.css">     
     </head>
     <body>
-        <!--<div id="topBar"><h1>Property Wizard</h1></div>-->
-        <nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
-            <a class="navbar-brand" href="#">Property Wizard</a>
-            <div class"collapse navbar-collapse"></div>
-        </nav>
-        <div class="container">            
-            <pw-app>
+        <div class="container" data-find>
+            <div class="header clearfix">                
+                <h3 class="text-muted float-left">Property Wizard</h3>
+                <pw-nav>
+                <pw-nav>
+                <nav>
+                    <ul class="nav nav-pills float-right">
+                        <li class="nav-item" ><a href="/postcodes" class="nav-link">Post codes</a></li>
+                        <li class="nav-item" ><a href="/agencies" class="nav-link">Agencies</a></li>
+                        <li class="nav-item" ><a href="/agencies/stats" class="nav-link">Agencies Stats</a></li>
+                    </ul>
+                </nav>   
+            </div>
+
+            <div class="jumbotron" style="display:none">    
+                <p class="lead">        
+
+                </p>
+            </div>
+
+            <div>
+                <pw-app>
                     thinking ...
-            </pw-app>
+                </pw-app>  
+                <router-outlet>
+                </router-outlet>
+            </div>
+
+            <footer class="footer">
+                <p>© Alessandro Piccione 2017</p>
+            </footer>
         </div>
 
         <!-- Polyfill(s) for older browsers -->
