@@ -17,9 +17,10 @@ import {PostcodeService} from "../services/postcode.service";
 
 export class AgencyStatsComponent {
     agencies:Agency[] =  []
-    postcodes:Postcode[] = [];
+    postcodes:Postcode[] = null;
     stats:AgencyStats[] = null;
     postcode:Postcode = null;
+    isStatsLoading:boolean = false;
     private router:Router;
 
     constructor(router:Router, private agencyService: AgencyService, private postcodeService: PostcodeService) {
@@ -33,10 +34,11 @@ export class AgencyStatsComponent {
 
     search() {      
         if (!this.postcode)
-            return this.showWarning("A Post code must be selected");     
+            return this.showWarning("A Post code must be selected"); 
 
+        this.isStatsLoading = true;
         this.postcodeService.getPostcodeStatistics(this.postcode, this.agencies)
-            .then(stats => this.stats = stats);
+            .then(stats => { this.stats = stats; this.isStatsLoading = false;} );
     }
 
     private getAgency(agencyName:string) :Agency {

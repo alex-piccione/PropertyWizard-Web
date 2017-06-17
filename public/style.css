@@ -5,6 +5,17 @@ body {
     color: #666;
 }
 
+h1, section {
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+section {
+  margin-top: 30px;
+  padding-top: 10px;
+}
+
 /* narrow jumbotron.css / downloaded from example */
 
 /* Space out content a bit */
