@@ -6,7 +6,8 @@ import { HttpModule } from "@angular/http";
 import { AppRoutingModule } from "./app-routing.module";
 
 // components
-import { AppComponent } from "./app.component";
+import { AppContainerComponent } from "./components/app container.component";
+import { AppNavComponent } from "./components/app nav.component";
 import { DashboardComponent } from "./components/dashboard.component";
 import { PostcodesComponent } from "./components/postcode list.component";
 import { PostcodeDetailComponent } from "./components/postcode detail.component";
@@ -28,7 +29,7 @@ import { AgencyService } from "./services/agency.service";
         AppRoutingModule
     ],
     declarations: [ 
-        AppComponent, 
+        AppContainerComponent, AppNavComponent, 
         DashboardComponent,
         PostcodesComponent,
         PostcodeDetailComponent,
@@ -37,7 +38,7 @@ import { AgencyService } from "./services/agency.service";
         AgencyListComponent,
         AgencyStatsComponent
     ],
-    bootstrap: [ AppComponent ],
+    bootstrap: [ AppContainerComponent, AppNavComponent ],
     providers: [
         PostcodeService,
         PostcodeSearchService,
