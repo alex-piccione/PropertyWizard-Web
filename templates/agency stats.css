@@ -1,0 +1,21 @@
+.postcode-item {
+    color: #0275d8;
+    cursor: pointer;
+    display: inline-block;
+    padding: .25em .5em;
+    border-radius: .25em;
+}
+
+.postcode-active {      
+    color: #fff;
+    background-color: #0275d8;
+}
+
+.container
+{  
+  color: #666;
+  padding: 1.5rem;
+  margin-right: 0;
+  margin-bottom: 0;
+  margin-left: 0;
+}

@@ -39,7 +39,6 @@ export class PostcodeService {
     getPostcodeStatistics(postcode: Postcode, agencies: Agency[]): Promise<AgencyStats[]>
     {
         const url = this.baseUrl + `/statistics?code=${postcode.code}`;
-
         return this.http.get(url)
             .toPromise()
             .then(response => this.createStatistics(response.json(), postcode, agencies))

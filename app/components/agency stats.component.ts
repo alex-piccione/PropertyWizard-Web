@@ -1,4 +1,5 @@
 import {Component, OnInit} from "@angular/core";
+import {Router} from "@angular/router";
 
 import {Agency} from "../entities/agency";
 import {Listing} from "../entities/listing";
@@ -17,10 +18,12 @@ import {PostcodeService} from "../services/postcode.service";
 export class AgencyStatsComponent {
     agencies:Agency[] =  []
     postcodes:Postcode[] = [];
-    stats:AgencyStats[] = [];
+    stats:AgencyStats[] = null;
     postcode:Postcode = null;
+    private router:Router;
 
-    constructor(private agencyService: AgencyService, private postcodeService: PostcodeService) {
+    constructor(router:Router, private agencyService: AgencyService, private postcodeService: PostcodeService) {
+        this.router = router;
     }
 
     ngOnInit() {
