@@ -6,7 +6,7 @@
         <div class="col-md-2 border-right-0">
             <nav class="nav-pills">
                 <h4>Post code</h4>
-                <div *ngIf="!postcodes">loading...</div>
+                <pw-loading *ngIf="!postcodes"></pw-loading>
     
                 <div *ngFor="let p of postcodes" (click)="postcode = p; search();"  style="display: block-inline">
                     <h6 [ngClass]="{'postcode-active': postcode == p}" class="postcode-item">{{p.description}}</h6>
@@ -17,7 +17,7 @@
          
             <blockquote class="blockquote" *ngIf="!stats"><em>select a post code</em></blockquote>      
 
-            <div *ngIf="isStatsLoading"><em>loading...</em></div> 
+            <div *ngIf="isStatsLoading"><pw-loading></pw-loading></div> 
 
             <blockquote class="blockquote" *ngIf="stats && stats.length == 0">
                 <em>no properties for this post code</em>

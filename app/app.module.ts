@@ -15,6 +15,7 @@ import { PostcodeSearchComponent } from "./components/postcode search.component"
 import { ListingListComponent } from "./components/listing list.component";
 import { AgencyListComponent } from "./components/agency list.component";
 import { AgencyStatsComponent } from "./components/agency stats.component";
+import { LoadingComponent} from "./components/loading.component";
 // services
 import { PostcodeService } from "./services/postcode.service";
 import { PostcodeSearchService } from "./services/postcode_search.service";
@@ -36,9 +37,10 @@ import { AgencyService } from "./services/agency.service";
         PostcodeSearchComponent,
         ListingListComponent,
         AgencyListComponent,
-        AgencyStatsComponent
+        AgencyStatsComponent,
+        LoadingComponent,
     ],
-    bootstrap: [ AppContainerComponent, AppNavComponent ],
+    bootstrap: [ AppContainerComponent, AppNavComponent, LoadingComponent ],
     providers: [
         PostcodeService,
         PostcodeSearchService,
