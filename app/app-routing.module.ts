@@ -18,7 +18,7 @@ const routes: Routes = [
     { path: "listing", component: ListingListComponent },
     //{ path: "listing/:listingId", component: ListingSingleComponent }
     { path: "agencies", component: AgencyListComponent },
-    { path: "agencies/stats", component: AgencyStatsComponent }
+    { path: "agencies-stats", component: AgencyStatsComponent }
 ] 
 
 @NgModule({
