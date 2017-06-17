@@ -40,7 +40,7 @@ import { AgencyService } from "./services/agency.service";
         AgencyStatsComponent,
         LoadingComponent,
     ],
-    bootstrap: [ AppContainerComponent, AppNavComponent, LoadingComponent ],
+    bootstrap: [ AppContainerComponent, AppNavComponent ],
     providers: [
         PostcodeService,
         PostcodeSearchService,
