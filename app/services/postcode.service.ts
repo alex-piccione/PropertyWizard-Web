@@ -36,13 +36,18 @@ export class PostcodeService {
     }
 
     // move to its own Service
-    getPostcodeStatistics(postcode: Postcode, agencies: Agency[]): Promise<AgencyStats[]>
+    getPostcodeStatistics(postcode: Postcode, agencies: Agency[], page=1, pageSize=20): Promise<AgencyStats[]>
     {
         const url = this.baseUrl + `/statistics?code=${postcode.code}`;
         return this.http.get(url)
             .toPromise()
-            .then(response => this.createStatistics(response.json(), postcode, agencies))
-            .catch(this.handleError);
+            .then(response => {
+                var allStats = this.createStatistics(response.json(), postcode, agencies)
+                const startIndex = page-1;
+                const endIndex = page*pageSize;
+                return allStats.slice(startIndex, endIndex)
+            })
+            .catch(this.handleError); 
     }
 
     update(postcode: Postcode): Promise<Postcode> {        
