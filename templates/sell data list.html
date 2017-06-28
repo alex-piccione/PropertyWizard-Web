@@ -1,2 +1,48 @@
-<h1>Sell data <small class="text-muted">{{postCode ? 'for "' + postCode.code + '"' : '' }}</small></h1>
+<h1>Sell data <small class="text-muted">{{postcode ? 'for "' + postcode.code + '"' : '' }}</small></h1>
 
+<section>
+<div class="container-fluid content">
+    <div class="row">
+        <div class="col-md-2">
+            <nav class="nav-pills">
+                <h4>Post code</h4>
+                <pw-loading when="{{!postcodes}}"></pw-loading>
+    
+                <div *ngFor="let p of postcodes" (click)="postcode = p; search();"  style="display: block-inline">
+                    <h6 [ngClass]="{'postcode-active': postcode == p}" class="postcode-item">{{p.description}}</h6>
+                </div>
+            </nav>
+        </div>
+        <div class="col-md-10">
+            [ list of sell data goes here ]
+        </div>
+    </div>
+</div>
+</section>
+
+<div class="clearfix"></div>
+
+<style>
+.postcode-item {
+    color: #0275d8;
+    cursor: pointer;
+    display: inline-block;
+    padding: .25em .5em;
+    border-radius: .25em;
+}
+
+.postcode-active {      
+    color: #fff;
+    background-color: #0275d8;
+}
+
+.container
+{  
+  color: #666;
+  padding: 1.5rem;
+  margin-right: 0;
+  margin-bottom: 0;
+  margin-left: 0;
+}
+
+</style>
