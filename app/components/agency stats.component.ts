@@ -1,6 +1,8 @@
 import {Component, OnInit} from "@angular/core";
 import {Router} from "@angular/router";
 
+import {BaseComponent} from "../components/base.component";
+
 import {Agency} from "../entities/agency";
 import {Listing} from "../entities/listing";
 import {AgencyStats} from "../entities/agency stats";
@@ -15,7 +17,7 @@ import {PostcodeService} from "../services/postcode.service";
     styleUrls: ["templates/agency stats.css"]
 })
 
-export class AgencyStatsComponent {
+export class AgencyStatsComponent extends BaseComponent {
     agencies:Agency[] =  []
     postcodes:Postcode[] = null;
     stats:AgencyStats[] = null;
@@ -24,6 +26,7 @@ export class AgencyStatsComponent {
     private router:Router;
 
     constructor(router:Router, private agencyService: AgencyService, private postcodeService: PostcodeService) {
+        super();
         this.router = router;
     }
 
@@ -34,7 +37,7 @@ export class AgencyStatsComponent {
 
     search() {      
         if (!this.postcode)
-            return this.showWarning("A Post code must be selected"); 
+            return super.warning("A Post code must be selected"); 
 
         this.isStatsLoading = true;
         this.postcodeService.getPostcodeStatistics(this.postcode, this.agencies)
@@ -47,9 +50,4 @@ export class AgencyStatsComponent {
         return this.agencies.find(function(agency){ return agency.name == agencyName })
             || new Agency("(unknown)", "(unknown agency)");
     }
-
-    private showWarning(text:string){
-        alert(text);
-    }
-
 }

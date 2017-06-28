@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from "@angular/core";
 
+import {BaseComponent} from "../components/base.component";
 import {PostcodeService} from "../services/postcode.service";
 import {Postcode} from "../entities/postcode";
 
@@ -7,16 +8,14 @@ import {Postcode} from "../entities/postcode";
     selector: "sell-data-list",
     templateUrl: "templates/sell data list.html"
 })
-
-export class SellDataListComponent implements OnInit 
+export class SellDataListComponent extends BaseComponent implements OnInit 
 {
     postcodes:Postcode[] = null;
     private postcode: string = null;
-    public aaa: "test";
 
     constructor(private postcodeService: PostcodeService)
     {
-
+        super();
     }
 
     ngOnInit() {
@@ -25,7 +24,7 @@ export class SellDataListComponent implements OnInit
 
     search() {      
         if (!this.postcode)
-            alert("A Post code must be selected");
+            super.warning("A Post code must be selected");
             //return this.showWarning("A Post code must be selected"); 
         /* todo: copy from "agency stats.component"
         this.isStatsLoading = true;
