@@ -8,6 +8,7 @@ import { PostcodeDetailComponent } from "./components/postcode detail.component"
 import { ListingListComponent } from "./components/listing list.component";
 import { AgencyListComponent } from "./components/agency list.component";
 import { AgencyStatsComponent } from "./components/agency stats.component";
+import { SellDataListComponent } from "./components/sell data list.component";
 
 const routes: Routes = [
     { path: "", redirectTo: "/dashboard", pathMatch: "full" },
@@ -18,7 +19,8 @@ const routes: Routes = [
     { path: "listing", component: ListingListComponent },
     //{ path: "listing/:listingId", component: ListingSingleComponent }
     { path: "agencies", component: AgencyListComponent },
-    { path: "agencies/stats", component: AgencyStatsComponent }
+    { path: "agencies/stats", component: AgencyStatsComponent },
+    { path: "selldata", component: SellDataListComponent }
 ] 
 
 @NgModule({

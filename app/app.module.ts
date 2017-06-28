@@ -16,6 +16,7 @@ import { ListingListComponent } from "./components/listing list.component";
 import { AgencyListComponent } from "./components/agency list.component";
 import { AgencyStatsComponent } from "./components/agency stats.component";
 import { LoadingComponent} from "./components/loading.component";
+import { SellDataListComponent } from "./components/sell data list.component";
 // services
 import { PostcodeService } from "./services/postcode.service";
 import { PostcodeSearchService } from "./services/postcode_search.service";
@@ -39,6 +40,7 @@ import { AgencyService } from "./services/agency.service";
         AgencyListComponent,
         AgencyStatsComponent,
         LoadingComponent,
+        SellDataListComponent
     ],
     bootstrap: [ AppContainerComponent, AppNavComponent ],
     providers: [
