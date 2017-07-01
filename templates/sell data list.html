@@ -14,7 +14,56 @@
             </nav>
         </div>
         <div class="col-md-10">
-            [ list of sell data goes here ]
+            <blockquote class="blockquote" *ngIf="!isLoadingSellData && !sellDataList"><em>select a post code</em></blockquote>      
+
+            <pw-loading when="{{isLoadingSellData}}"></pw-loading>
+
+            <blockquote class="blockquote" *ngIf="sellDataList && sellDataList.length == 0">
+                <em>no properties for this post code</em>
+            </blockquote>
+
+            <div *ngIf="!isLoadingSellData && sellDataList && sellDataList.length > 0">            
+                <table class="table table-striped table-sm table-hover">
+                    <thead>
+                        <th>#</th>
+                        <th>Date</th>                        
+                        <th>Transaction Id</th>  
+                        <th>Price</th>  
+                        <th>Property type</th>   
+                        <th>PAON</th>   
+                        <th>SAON</th>   
+                        <th>Street</th>
+                        <th>Locality</th>
+                        <th>City</th>
+                        <th>District</th>   
+                        <th>County</th>
+
+                        <th>x</th>
+                        <th>action</th>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let record of sellDataList; let i = index">
+                            <th scope="row">{{i+1}}</th>
+                            <td>{{record.date | date:'yyyy-MM-dd'}}</td>      
+                            <td>{{record.transactionId}}</td>     
+                            <td>{{record.price}}</td>
+                            <td>{{record.propertyType}}</td>     
+                            <td>{{record.paon}}</td>
+                            <td>{{record.saon}}</td>
+                            <td>{{record.street}}</td>
+
+                            <td>{{record.locality}}</td>
+                            <td>{{record.city}}</td>
+                            <td>{{record.district}}</td>
+                            <td>{{record.county}}</td>
+
+                            <td>{{record.x}}</td>
+                            <td>{{record.action}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
         </div>
     </div>
 </div>

@@ -2,7 +2,9 @@ import { Component, Input, OnInit } from "@angular/core";
 
 import {BaseComponent} from "../components/base.component";
 import {PostcodeService} from "../services/postcode.service";
+import {SellDataService} from "../services/sell_data.service";
 import {Postcode} from "../entities/postcode";
+import {SellData} from "../entities/sell data";
 
 @Component({
     selector: "sell-data-list",
@@ -11,9 +13,11 @@ import {Postcode} from "../entities/postcode";
 export class SellDataListComponent extends BaseComponent implements OnInit 
 {
     postcodes:Postcode[] = null;
-    private postcode: string = null;
+    private postcode: Postcode = null;
+    public sellDataList: SellData[] = [];
+    public isLoadingSellData = false;
 
-    constructor(private postcodeService: PostcodeService)
+    constructor(private sellDataservice: SellDataService, private postcodeService: PostcodeService)
     {
         super();
     }
@@ -25,12 +29,10 @@ export class SellDataListComponent extends BaseComponent implements OnInit
     search() {      
         if (!this.postcode)
             super.warning("A Post code must be selected");
-            //return this.showWarning("A Post code must be selected"); 
-        /* todo: copy from "agency stats.component"
-        this.isStatsLoading = true;
-        this.postcodeService.getPostcodeStatistics(this.postcode, this.agencies)
-            .then(stats => { this.stats = stats; this.isStatsLoading = false;} );
-            */
+
+        this.isLoadingSellData = true;
+        this.sellDataservice.getSells(this.postcode.code)
+            .then(sellDataList => { this.isLoadingSellData = false; this.sellDataList = sellDataList; });
     }
 
 }

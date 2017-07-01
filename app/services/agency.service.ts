@@ -3,23 +3,26 @@ import { Http, Headers } from "@angular/http";
 
 import "rxjs/add/operator/toPromise";
 
+import {BaseService} from "./base.service";
 import { Agency } from "../entities/agency";
 import { AgencyStats } from "../entities/agency stats";
 
 @Injectable()
-export class AgencyService {
+export class AgencyService extends BaseService {
 
-    private baseUrl = "http://api.propertywizard.org/agency";    
+    private baseUrl = super.getApiUrl() + "/agency"; 
     private headers = new Headers({"Content-Type": "application/json"});
 
-    constructor(private http: Http){}
+    constructor(private http: Http) {
+        super();
+    }
 
     getAgencies(): Promise<Agency[]> {
-        const url = `${this.baseUrl}`;
+        const url = this.baseUrl;
         return this.http.get(url)
             .toPromise()
             .then(response => this.parseAgencies(response.json()))
-            .catch(this.handleError);
+            .catch(super.handleError);
     }
 
     private parseAgencies(data: any[]): Agency[] {
@@ -38,10 +41,5 @@ export class AgencyService {
         });
 
         return agencies;
-    }
-
-    private handleError(error: any): Promise<any> {
-        console.error("An error occured", error);
-        return Promise.reject(error.message || error);
     }
 }
