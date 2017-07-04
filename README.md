@@ -18,38 +18,16 @@ https://codelabs.developers.google.com/codelabs/cloud-cardboard-viewer/index.htm
 
 3. Open http://localhost:8080
 
-# Deploy on Google Cloud Platform
 
-## Prerequisites
+# Heroku
 
-The repository should exists in GCP.
-
-## Deploy
-
-1. Set API_KEY value in app.yaml
-2. Run `gcloud app deploy`.
-3. Open it at https://<your-project-id>.appspot.com
-
-## Deploy a different version
-
-1. Run `gcloud app deploy -version v1`
-
-# Use GIT
-
-1. Configure GIT:
-git config --global user.email "you@email.com"
-git config --global user.name "Your Name"
-git config credential.helper gcloud.sh
-
-2. Add your Cloud Source Repository as a git remote:
-git remote add google https://source.developers.google.com/p/YOUR_PROJECT_ID/r/default
-
-3. Push the code into the Cloud Source Repository:
-git push --all google
-
-# References
-
-[https://cloud.google.com/sdk/gcloud/reference/app/deploy](Google Cloud "deploy")
+## Application Error
+When this happen web site shows "Application error".  
+Check the Heroku log. On Heroku project page select "View logs" from the top right drop down menu.
+If the error says to look for npm log ("npm ERR! There is likely additional logging output above.") you can try 
+to execute the deploy commands from the heroku console to see what is the error.
+I'ven't find yet a simple way to lok to the npm log.  
+For the last particular case I run "npm run build:prod" and the error states clearly that 2 files were missing.
 
 
 # How it works
@@ -107,20 +85,3 @@ How to run it in IIS ?
 1. In TeamCity VCS settings select the "Custom private key" option in Authentication Settings.
 1. Set the username and the path to the key.
 1. Set Passphrase if it was set when the key was created (optional)
-
-
-# Heroku
-
-When you see this error:
-'''Application error
-An error occurred in the application and your page could not be served. If you are the application owner, check your logs for details.'''
-
-Go to the project page.
-On the top right buttons menu there is one named "More".
-Click it and select "View Logs".
-It opens this URL: "https://dashboard.heroku.com/apps/{app name}/logs".
-
-
-## app[web.1]: npm ERR!     /app/npm-debug.log
-
-

@@ -1,11 +1,11 @@
 export class BaseService {
-    public apiUrl = "http://api.propertywizard.org";
 
+    public apiUrl = "http://api.propertywizard.org";
+    
     protected getApiUrl() { return this.apiUrl; }
 
-
-    protected handleError(error: any): Promise<any> {
-        console.error("An error occured", error);
+    public handleError(error: any): Promise<any> {
+        console.error("An error occurred", error);
         return Promise.reject(error.message || error);
     }
 }
