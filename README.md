@@ -107,3 +107,20 @@ How to run it in IIS ?
 1. In TeamCity VCS settings select the "Custom private key" option in Authentication Settings.
 1. Set the username and the path to the key.
 1. Set Passphrase if it was set when the key was created (optional)
+
+
+# Heroku
+
+When you see this error:
+'''Application error
+An error occurred in the application and your page could not be served. If you are the application owner, check your logs for details.'''
+
+Go to the project page.
+On the top right buttons menu there is one named "More".
+Click it and select "View Logs".
+It opens this URL: "https://dashboard.heroku.com/apps/{app name}/logs".
+
+
+## app[web.1]: npm ERR!     /app/npm-debug.log
+
+
