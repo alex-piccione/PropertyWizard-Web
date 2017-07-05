@@ -23,6 +23,7 @@ import { PostcodeSearchService } from "./services/postcode_search.service";
 import { ListingService } from "./services/listing.service";
 import { AgencyService } from "./services/agency.service";
 import { SellDataService } from "./services/sell_data.service";
+import { PagerService } from "./services/pager.service";
 
 @NgModule({
     imports: [ 
@@ -49,7 +50,8 @@ import { SellDataService } from "./services/sell_data.service";
         PostcodeSearchService,
         ListingService,
         AgencyService,
-        SellDataService
+        SellDataService,
+        PagerService
     ]
 })
 
