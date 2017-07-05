@@ -14,7 +14,7 @@ export class SellDataListComponent extends BaseComponent implements OnInit
 {
     postcodes:Postcode[] = null;
     private postcode: Postcode = null;
-    public sellDataList: SellData[] = [];
+    public sellDataList: SellData[] = null;
     public isLoadingSellData = false;
 
     constructor(private sellDataservice: SellDataService, private postcodeService: PostcodeService)
@@ -30,6 +30,7 @@ export class SellDataListComponent extends BaseComponent implements OnInit
         if (!this.postcode)
             super.warning("A Post code must be selected");
 
+        this.sellDataList = null;
         this.isLoadingSellData = true;
         this.sellDataservice.getSells(this.postcode.code)
             .then(sellDataList => { this.isLoadingSellData = false; this.sellDataList = sellDataList; });

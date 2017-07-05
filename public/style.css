@@ -97,3 +97,5 @@ body {
     border-bottom: 0;
   }
 }
+
+.attribution-statement { font-size: 0.8em; background-color: #eee; border-radius: 5px; padding:5px 2em; }
