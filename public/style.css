@@ -101,3 +101,4 @@ body {
 .attribution-statement { font-size: 0.8em; background-color: #eee; border-radius: 5px; padding:5px 2em; }
 
 .pagination a { cursor:pointer; }
+.pagination-sm .page-link { min-width:2.5em; text-align: center; } /* prevent different size for 1 or 2 digits apge numer */

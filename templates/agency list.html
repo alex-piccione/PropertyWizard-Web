@@ -2,10 +2,12 @@
 <div>
     <ul>
         <li *ngFor="let agency of pagedItems; let i = index">
-            <span style="width: 4em">{{i+1}}</span><span> {{agency.code}} - {{agency.name}}</span>
+            <h6 class="badge badge-pill badge-primary">{{ pager.startIndex + i + 1}}</h6><span> {{agency.code}} - {{agency.name}}</span>
         </li>
     </ul>
 </div>
+
+<!-- animation: http://jasonwatmore.com/post/2017/04/19/angular-2-4-router-animation-tutorial-example -->
 
 <!-- pager -->
 <nav>
