@@ -6,6 +6,7 @@ import "rxjs/add/operator/toPromise";
 import { Postcode } from "../entities/postcode";
 import { Agency } from "../entities/agency";
 import { AgencyStats } from "../entities/agency stats";
+import { SearchResult } from "../entities/search result";
 
 @Injectable()
 export class PostcodeService {

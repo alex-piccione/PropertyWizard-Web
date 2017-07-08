@@ -28,7 +28,7 @@
                         <th>#</th>
                         <th>Date</th>                        
                         <th>Transaction Id</th>  
-                        <th>Price</th>  
+                        <th>Price</th>
                         <th>Property type</th>   
                         <th>PAON</th>   
                         <th>SAON</th>   
@@ -62,6 +62,27 @@
                         </tr>
                     </tbody>
                 </table>
+
+                <!-- pager -->
+                <nav>
+                <ul *ngIf="pager.pages && pager.pages.length" class="pagination pagination-sm justify-content-center">
+                    <li class="page-item" [ngClass]="{disabled:pager.currentPage === 1}">
+                        <a class="page-link" (click)="setPage(1)">First</a>
+                    </li>
+                    <li class="page-item" [ngClass]="{disabled:pager.currentPage === 1}">
+                        <a class="page-link" (click)="setPage(pager.currentPage - 1)">Previous</a>
+                    </li>
+                    <li class="page-item" *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+                        <a class="page-link" (click)="setPage(page)">{{page}}</a>
+                    </li>
+                    <li class="page-item" [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+                        <a class="page-link" (click)="setPage(pager.currentPage + 1)">Next</a>
+                    </li>
+                    <li class="page-item" [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+                        <a class="page-link" (click)="setPage(pager.totalPages)">Last</a>
+                    </li>
+                </ul>
+                </nav>
             </div>
 
         </div>

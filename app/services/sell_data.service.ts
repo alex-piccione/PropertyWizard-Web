@@ -3,9 +3,9 @@ import { Http, Headers } from "@angular/http";
 
 import "rxjs/add/operator/toPromise";
 
-
 import {BaseService} from "./base.service";
 import {SellData} from "../entities/sell data";
+import {SearchResult} from "../entities/search result";
 
 @Injectable()
 export class SellDataService extends BaseService {
@@ -16,24 +16,24 @@ export class SellDataService extends BaseService {
     constructor(private http: Http) {
         super();   
     }
-
-    getSells(postCode: string): Promise<SellData[]> {
-        const url = `${this.baseUrl}/list?postCode=${postCode}`;
+    getSells(postCode: string, pageSize:number, page:number): Promise<SearchResult<SellData>> {
+        const url = `${this.baseUrl}/list?postCode=${postCode}&pageSize=${pageSize}&page=${page}`;        
         return this.http.get(url)
             .toPromise()
-            .then(response => this.parseSellData(response.json()))
+            .then(response => this.parseSearchResult(response.json()))
             .catch(super.handleError);
+    }
+
+    private parseSearchResult(data: any): SearchResult<SellData> {
+        const numberOfItems = data.numberOfItems;
+        const items = this.parseSellData(data.items);
+        return new SearchResult<SellData>(items, numberOfItems);
     }
 
     private parseSellData(data: any[]): SellData[] {
         let sellDataList: SellData[] = []
 
-        if(data.length > 0)
-            console.log(data[0]);
-
         data.forEach(element => {
-            /*if (element.name == null) 
-                element.name = "(noname)";*/
             let sellData = new SellData(element.id, element.insertDate, element.date, element.price, element.postCode);
             sellData.propertyType = element.propertyType;
             sellData.transactionId = element.transactionId;
