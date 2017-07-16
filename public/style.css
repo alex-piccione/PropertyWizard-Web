@@ -98,6 +98,11 @@ body {
   }
 }
 
+table table.dense {
+  line-height: 1;
+  font-size: .9rem;
+}
+
 .attribution-statement { font-size: 0.8em; background-color: #eee; border-radius: 5px; padding:5px 2em; }
 
 .pagination a { cursor:pointer; }

@@ -1,4 +1,7 @@
 <h1>Agencies</h1>
+
+<pw-loading when="{{!pagedItems}}"></pw-loading>
+
 <div>
     <ul>
         <li *ngFor="let agency of pagedItems; let i = index">
