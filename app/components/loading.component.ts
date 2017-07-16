@@ -9,3 +9,8 @@ export class LoadingComponent {
     @Input("when")
     isVisible:boolean;
 }
+
+/*
+usage:
+<pw-loading when="{{isLoading}}"></pw-loading>
+*/
