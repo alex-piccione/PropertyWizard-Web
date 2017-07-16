@@ -98,7 +98,7 @@ body {
   }
 }
 
-table table.dense {
+table.table-dense {
   line-height: 1;
   font-size: .9rem;
 }
