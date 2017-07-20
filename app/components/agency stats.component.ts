@@ -10,6 +10,7 @@ import {Postcode} from "../entities/postcode";
 
 import {AgencyService} from "../services/agency.service";
 import {PostcodeService} from "../services/postcode.service";
+import {PagerService} from "../services/pager.service";
 
 @Component({
     selector: "agency-stats",
@@ -25,9 +26,10 @@ export class AgencyStatsComponent extends BaseComponent {
     isStatsLoading:boolean = false;
     private router:Router;
 
-    constructor(router:Router, private agencyService: AgencyService, private postcodeService: PostcodeService) {
+    constructor(router:Router, private agencyService: AgencyService, private postcodeService: PostcodeService, private pagerService:PagerService) {
         super();
         this.router = router;
+        //this.pagerService = pagerService;
     }
 
     ngOnInit() {
@@ -35,13 +37,28 @@ export class AgencyStatsComponent extends BaseComponent {
         this.agencyService.getAgencies().then(agencies => this.agencies = agencies);
     }
 
+    // pager object
+    private pager: any = {};
+
     search() {      
         if (!this.postcode)
             return super.warning("A Post code must be selected"); 
 
+        this.setPage(1);
+    }
+        
+    private setPage(page: number) {
+        if (page < 1 || page > this.pager.totalPages) {
+            return;
+        }
+
         this.isStatsLoading = true;
-        this.postcodeService.getPostcodeStatistics(this.postcode, this.agencies)
-            .then(stats => { this.stats = stats; this.isStatsLoading = false;} );
+        this.postcodeService.getPostcodeStatistics(this.postcode, this.agencies, page)
+            .then(result => { 
+                this.stats = result.Items;                
+                this.pager = this.pagerService.getPager(result.NumberOfItems, page);
+                this.isStatsLoading = false;
+            } );     
     }
 
     private getAgency(agencyName:string) :Agency {
