@@ -8,7 +8,7 @@
                 <h4>Post code</h4>
                 <pw-loading when="{{!postcodes}}"></pw-loading>
     
-                <div *ngFor="let p of postcodes" (click)="postcode = p; search();"  style="display: block-inline">
+                <div *ngFor="let p of postcodes" (click)="postcode = p; search();" style="display: block-inline">
                     <h6 [ngClass]="{'postcode-active': postcode == p}" class="postcode-item">{{p.description}}</h6>
                 </div>
             </nav>
@@ -32,13 +32,33 @@
                     </thead>
                     <tbody>
                         <tr *ngFor="let record of stats; let i = index">
-                            <th scope="row">{{i+1}}</th>
+                            <th scope="row">{{pager.startIndex + i + 1}}</th>
                             <td>{{record.agency.code}}</td>                            
                             <td>{{record.agency.name}}</td>
                             <td>{{record.noProperties}}</td>
                         </tr>
                     </tbody>
                 </table>
+
+                <nav>
+                    <ul *ngIf="pager.pages && pager.pages.length" class="pagination pagination-sm justify-content-center">
+                        <li class="page-item" [ngClass]="{disabled:pager.currentPage === 1}">
+                            <a class="page-link" (click)="setPage(1)">First</a>
+                        </li>
+                        <li class="page-item" [ngClass]="{disabled:pager.currentPage === 1}">
+                            <a class="page-link" (click)="setPage(pager.currentPage - 1)">Previous</a>
+                        </li>
+                        <li class="page-item" *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+                            <a class="page-link" (click)="setPage(page)">{{page}}</a>
+                        </li>
+                        <li class="page-item" [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+                            <a class="page-link" (click)="setPage(pager.currentPage + 1)">Next</a>
+                        </li>
+                        <li class="page-item" [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+                            <a class="page-link" (click)="setPage(pager.totalPages)">Last</a>
+                        </li>
+                    </ul>
+                </nav>
             </div>
         </div>
     </div>

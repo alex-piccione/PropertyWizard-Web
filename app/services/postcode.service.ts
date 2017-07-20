@@ -37,16 +37,19 @@ export class PostcodeService {
     }
 
     // move to its own Service
-    getPostcodeStatistics(postcode: Postcode, agencies: Agency[], page=1, pageSize=20): Promise<AgencyStats[]>
+    getPostcodeStatistics(postcode: Postcode, agencies: Agency[], page=1, pageSize=20): Promise<SearchResult<AgencyStats>>
     {
         const url = this.baseUrl + `/statistics?code=${postcode.code}`;
         return this.http.get(url)
             .toPromise()
             .then(response => {
                 var allStats = this.createStatistics(response.json(), postcode, agencies)
-                const startIndex = page-1;
+                // simulate pagination on server
+                const startIndex = pageSize * (page-1); // 0-bases
                 const endIndex = page*pageSize;
-                return allStats.slice(startIndex, endIndex)
+                var items = allStats.slice(startIndex, endIndex);
+                var numberOfItems = allStats.length;
+                return new SearchResult<AgencyStats>(items, numberOfItems);
             })
             .catch(this.handleError); 
     }
@@ -107,7 +110,7 @@ export class PostcodeService {
             stats.push(new AgencyStats(postcode, agency, elem.noProperties));
         });
 
-        // sort by noProperties descrending
+        // sort by noProperties descending
         stats.sort(function(a, b){ 
             return a.noProperties < b.noProperties ? 1
                 : a.noProperties > b.noProperties ? -1
